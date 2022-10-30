@@ -52,7 +52,8 @@ public class DatabaseLogin {
                     .getConnection("jdbc:postgresql://db.fe.up.pt:5432/pswa0506",
                             "pswa0506", "XPdYrXJb");
 
-            // Delete data from user with ID 9
+            // Delete data from user with ID received in argument
+            stmt = c.createStatement();
             String sql1 = "DELETE from loseit.login where ID = " + ID + ";";
             stmt.executeUpdate(sql1);
 
@@ -84,8 +85,8 @@ public class DatabaseLogin {
             rs = stmt.executeQuery("SELECT * from loseit.login where email = '"+ email +"';" );
 
             // The condition !rs.next() must be revised, the intent was to check the non-existence of the email given
-            if(!rs.next())
-                System.out.println("Email does not exist. Are you signed in?");
+            //if(!rs.next())
+            //    System.out.println("Email does not exist. Are you signed in?");
 
             while (rs.next()) {
                 int id = rs.getInt("id");
