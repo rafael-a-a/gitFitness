@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 public class LoginUI extends JFrame implements ActionListener, MouseListener, KeyListener {
 
-    DatabaseLogin d = new DatabaseLogin();
+    Database d = new Database();
     JButton loginButton;
     JButton registerButton;
     JLabel usernameLabel;
@@ -105,11 +105,12 @@ public class LoginUI extends JFrame implements ActionListener, MouseListener, Ke
 
             String uID;
             uID = usernameField.getText();
+            String phonen = usernameField.getText();
             String password;
             password = String.valueOf(passwordField.getPassword()); // this method returns char[], not a String
 
 
-            if(d.checkLogin(uID,password)) {
+            if(d.checkLogin(uID,password, phonen)) {
                 //System.out.println(usernameField.getText() + " is logged in\n");
                 loginStatus.setFont(new Font("",Font.ITALIC,14));
                 loginStatus.setForeground(Color.green);

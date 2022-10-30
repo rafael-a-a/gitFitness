@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Objects;
 
-public class DatabaseLogin {
+public class Database {
     public Connection c;
     public Statement stmt;
     public ResultSet rs;
@@ -65,14 +65,16 @@ public class DatabaseLogin {
         System.out.println("Deletion ID = " + ID +" successfully.");
     }
 
-    public boolean checkLogin(String email, String posPassword){
+    public boolean checkLogin(String email, String posPassword, String phonen){
         /*
          * NAME: checkPassword
          * RETURNS: none
          * PARAMETERS:
          * * email - user email, must be verified (it cannot exist already)
          * * posPassword - user password, must be compared with password in database
+         * * phonen - user phone number, can also be used to login
          */
+        int flagF = 0; // Flag to check if email/phone number introduced exist in the database
         try {
             // Open connection to database loseit.login
             Class.forName("org.postgresql.Driver");
@@ -82,28 +84,27 @@ public class DatabaseLogin {
 
             // Search email in database
             stmt = c.createStatement();
-            rs = stmt.executeQuery("SELECT * from loseit.login where email = '"+ email +"';" );
+            rs = stmt.executeQuery("SELECT password, id from loseit.login where email = '"+ email +"' OR phonen = '"+ phonen +"';");
 
-            // The condition !rs.next() must be revised, the intent was to check the non-existence of the email given
-            //if(!rs.next())
-            //    System.out.println("Email does not exist. Are you signed in?");
-            System.out.println("print1");
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String realPassword = rs.getString("password");
-                System.out.println("print2");
+
                 if(Objects.equals(realPassword, posPassword)){
+                    System.out.println("Login successful with password: " + realPassword + " user ID : " + id);
                     rs.close();
                     stmt.close();
                     c.close();
-                    System.out.println("Login successful with password: " + realPassword + " user ID : " + id);
                     return true;
                 }
                 else{
                     System.out.println("Invalid password.");
                 }
+                flagF = 1;
             }
-            System.out.println("print3");
+            if(flagF == 0){  // If there is no rs.next, email/phone number don't exist in the database
+                System.out.println("Email and phone number do not exist. Are you signed in?");
+            }
             rs.close();
             stmt.close();
             c.close();
@@ -114,6 +115,6 @@ public class DatabaseLogin {
             System.exit(0);
         }
 
-        return false; //if function reaches this point, then login was not successful
+        return false; // if function reaches this point, then login was not successful
     }
 }
