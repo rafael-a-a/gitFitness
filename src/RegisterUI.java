@@ -125,6 +125,7 @@ public class RegisterUI extends JFrame implements ActionListener, MouseListener,
             if(String.valueOf(passwordField.getPassword()).equals("Password...")){
                 passwordField.setText("");
                 passwordField.setEchoChar((char)8226);
+                passwordField.setForeground(Color.BLACK);
             }
 
         }
@@ -132,18 +133,21 @@ public class RegisterUI extends JFrame implements ActionListener, MouseListener,
             if(String.valueOf(confirmpassField.getPassword()).equals("Confirm your password...")){
                 confirmpassField.setText("");
                 confirmpassField.setEchoChar((char)8226);
+                confirmpassField.setForeground(Color.black);
             }
 
         }
         if(e.getSource() == emailField){
             if(emailField.getText().equals("Email...")){
                 emailField.setText("");
+                emailField.setForeground(Color.black);
 
             }
         }
         if(e.getSource() == phoneField){
             if(phoneField.getText().equals("Phone number...")){
                 phoneField.setText("");
+                phoneField.setForeground(Color.black);
 
             }
         }
@@ -151,6 +155,7 @@ public class RegisterUI extends JFrame implements ActionListener, MouseListener,
         if(e.getSource() == nameField){
             if(nameField.getText().equals("Name...")){
                 nameField.setText("");
+                nameField.setForeground(Color.black);
 
             }
         }
@@ -173,6 +178,7 @@ public class RegisterUI extends JFrame implements ActionListener, MouseListener,
             if(String.valueOf(passwordField.getPassword()).equals("Password...")){
                 passwordField.setText("");
                 passwordField.setEchoChar((char)8226);
+                passwordField.setForeground(Color.black);
             }
 
         }
@@ -180,18 +186,21 @@ public class RegisterUI extends JFrame implements ActionListener, MouseListener,
             if(String.valueOf(confirmpassField.getPassword()).equals("Confirm your password...")){
                 confirmpassField.setText("");
                 confirmpassField.setEchoChar((char)8226);
+                confirmpassField.setForeground(Color.black);
             }
 
         }
         if(e.getSource() == emailField){
             if(emailField.getText().equals("Email...")){
                 emailField.setText("");
+                emailField.setForeground(Color.black);
 
             }
         }
         if(e.getSource() == phoneField){
             if(phoneField.getText().equals("Phone number...")){
                 phoneField.setText("");
+                phoneField.setForeground(Color.black);
 
             }
         }
@@ -199,6 +208,7 @@ public class RegisterUI extends JFrame implements ActionListener, MouseListener,
         if(e.getSource() == nameField){
             if(nameField.getText().equals("Name...")){
                 nameField.setText("");
+                nameField.setForeground(Color.black);
 
             }
         }
