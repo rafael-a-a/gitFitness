@@ -65,7 +65,7 @@ public class DatabaseLogin {
         System.out.println("Deletion ID = " + ID +" successfully.");
     }
 
-    public void checkLogin(String email, String posPassword){
+    public boolean checkLogin(String email, String posPassword){
         /*
          * NAME: checkPassword
          * RETURNS: none
@@ -87,17 +87,23 @@ public class DatabaseLogin {
             // The condition !rs.next() must be revised, the intent was to check the non-existence of the email given
             //if(!rs.next())
             //    System.out.println("Email does not exist. Are you signed in?");
-
+            System.out.println("print1");
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String realPassword = rs.getString("password");
+                System.out.println("print2");
                 if(Objects.equals(realPassword, posPassword)){
+                    rs.close();
+                    stmt.close();
+                    c.close();
                     System.out.println("Login successful with password: " + realPassword + " user ID : " + id);
+                    return true;
                 }
                 else{
                     System.out.println("Invalid password.");
                 }
             }
+            System.out.println("print3");
             rs.close();
             stmt.close();
             c.close();
@@ -107,5 +113,7 @@ public class DatabaseLogin {
             System.err.println(e.getClass().getName()+": "+e.getMessage());
             System.exit(0);
         }
+
+        return false; //if function reaches this point, then login was not successful
     }
 }

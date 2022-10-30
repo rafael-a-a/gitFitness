@@ -6,6 +6,12 @@ import java.awt.event.ActionListener;
 public class RegisterUI extends JFrame implements ActionListener {
 
     JButton createButton = new JButton();
+    JTextField emailField = new JTextField();
+    JTextField idlField = new JTextField();
+    JTextField phoneField = new JTextField();
+    JPasswordField passwordField = new JPasswordField();
+
+
     final int buttonWidth = 120;
     final int buttonHeight = 30;
     final int windowWidth = 700;

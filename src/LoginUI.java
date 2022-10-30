@@ -1,11 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
-public class LoginUI extends JFrame implements ActionListener {
+public class LoginUI extends JFrame implements ActionListener, MouseListener, KeyListener {
 
-
+    DatabaseLogin d = new DatabaseLogin();
     JButton loginButton;
     JButton registerButton;
     JLabel usernameLabel;
@@ -60,6 +59,11 @@ public class LoginUI extends JFrame implements ActionListener {
 
 
         usernameField.setBounds(windowWidth/2 - buttonWidth/2,windowHeight - 340, buttonWidth, buttonHeight - 10);
+        usernameField.setText("username");
+        usernameField.setForeground(Color.gray);
+        usernameField.addMouseListener(this);
+        usernameField.addKeyListener(this);
+
         passwordField.setBounds(windowWidth/2 - buttonWidth/2,windowHeight - 310, buttonWidth, buttonHeight - 10);
 
         usernameLabel.setBounds(windowWidth/2 - buttonWidth/2 - 60 ,windowHeight - 356, buttonWidth, buttonHeight + 20);
@@ -68,7 +72,7 @@ public class LoginUI extends JFrame implements ActionListener {
         passwordLabel.setText("Password");
         createAccountLabel.setBounds(windowWidth/2 - buttonWidth/2 ,windowHeight - 160, buttonWidth, buttonHeight + 20);
         createAccountLabel.setText("First time on Lose It?");
-        loginStatus.setBounds(windowWidth/2 - buttonWidth,windowHeight - 140, buttonWidth*3, buttonHeight - 10);
+        loginStatus.setBounds(windowWidth/2 - buttonWidth,windowHeight - 220, buttonWidth*3, buttonHeight - 10);
 
 
 
@@ -93,6 +97,8 @@ public class LoginUI extends JFrame implements ActionListener {
 
 
 
+
+
     @Override //button functionality
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == loginButton ){
@@ -103,7 +109,7 @@ public class LoginUI extends JFrame implements ActionListener {
             password = String.valueOf(passwordField.getPassword()); // this method returns char[], not a String
 
 
-            if(uID.equals("rafael") && password.equals("rafael")) {
+            if(d.checkLogin(uID,password)) {
                 //System.out.println(usernameField.getText() + " is logged in\n");
                 loginStatus.setFont(new Font("",Font.ITALIC,14));
                 loginStatus.setForeground(Color.green);
@@ -129,4 +135,52 @@ public class LoginUI extends JFrame implements ActionListener {
     }
 
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if(e.getSource() == usernameField) {
+            usernameField.setText("");
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        if(e.getSource() == usernameField){
+
+            if(usernameField.getText().equals("username")){
+                usernameField.setText("");
+            }
+
+        }
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
 }
