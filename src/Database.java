@@ -26,7 +26,7 @@ public class Database {
             // Insert data gathered from the console in client1
             stmt = c.createStatement();
             String sql = "INSERT INTO loseit.login (NAME,EMAIL,PASSWORD,PHONEN) "
-                    + "VALUES ('" + client.name + "', '" + client.email + "', '" + client.password + "', '" +  client.phone + "')";
+                    + "VALUES ('" + client.getName() + "', '" + client.getEmail() + "', '" + client.getPassword() + "', '" +  client.getPhone() + "')";
 
             stmt.executeUpdate(sql);
 

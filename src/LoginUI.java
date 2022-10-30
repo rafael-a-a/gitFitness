@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class LoginUI extends JFrame implements ActionListener, MouseListener, KeyListener {
+public class LoginUI extends JFrame implements ActionListener{
 
     Database d = new Database();
     JButton loginButton;
@@ -59,10 +59,10 @@ public class LoginUI extends JFrame implements ActionListener, MouseListener, Ke
 
 
         usernameField.setBounds(windowWidth/2 - buttonWidth/2,windowHeight - 340, buttonWidth, buttonHeight - 10);
-        usernameField.setText("username");
-        usernameField.setForeground(Color.gray);
-        usernameField.addMouseListener(this);
-        usernameField.addKeyListener(this);
+        //usernameField.setText("username");
+        //usernameField.setForeground(Color.gray);
+        //usernameField.addMouseListener(this);
+        //usernameField.addKeyListener(this);
 
         passwordField.setBounds(windowWidth/2 - buttonWidth/2,windowHeight - 310, buttonWidth, buttonHeight - 10);
 
@@ -112,11 +112,11 @@ public class LoginUI extends JFrame implements ActionListener, MouseListener, Ke
 
             if(d.checkLogin(uID,password, phonen)) {
                 //System.out.println(usernameField.getText() + " is logged in\n");
-                loginStatus.setFont(new Font("",Font.ITALIC,14));
+                /*loginStatus.setFont(new Font("",Font.ITALIC,14));
                 loginStatus.setForeground(Color.green);
                 loginStatus.setText("                  Welcome " + usernameField.getText());
                 loginStatus.setVisible(true);
-
+                */
                 loginButton.setEnabled(false);
             }else{
                 loginStatus.setFont(new Font("",Font.ITALIC,14));
@@ -135,7 +135,7 @@ public class LoginUI extends JFrame implements ActionListener, MouseListener, Ke
         }
     }
 
-
+/*                  Not necessary right now
     @Override
     public void mouseClicked(MouseEvent e) {
         if(e.getSource() == usernameField) {
@@ -183,5 +183,5 @@ public class LoginUI extends JFrame implements ActionListener, MouseListener, Ke
     @Override
     public void keyReleased(KeyEvent e) {
 
-    }
+    }*/
 }
