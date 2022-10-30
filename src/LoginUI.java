@@ -11,14 +11,19 @@ public class LoginUI extends JFrame implements ActionListener {
     JLabel usernameLabel;
     JLabel passwordLabel;
     JLabel loginStatus;
+    JLabel createAccountLabel;
     JTextField usernameField;
     JPasswordField passwordField;
 
     private boolean authentication = false;
+    private boolean register = false;
 
     boolean getauthentication(){
         return authentication;
     }
+     boolean getregister(){
+        return register;
+     }
     
 
     LoginUI(){
@@ -30,6 +35,7 @@ public class LoginUI extends JFrame implements ActionListener {
         loginStatus = new JLabel();
         usernameField = new JTextField();
         passwordField = new JPasswordField();    //hides password when writing
+        createAccountLabel = new JLabel();
 
         final int buttonWidth = 120;
         final int buttonHeight = 30;
@@ -44,9 +50,9 @@ public class LoginUI extends JFrame implements ActionListener {
         loginButton.setBackground(new Color(255,255,255));
         loginButton.setBorder(BorderFactory.createEtchedBorder());
 
-        registerButton.setBounds(windowWidth/2 - buttonWidth/2,windowHeight - 230, buttonWidth, buttonHeight);
+        registerButton.setBounds(windowWidth/2 - buttonWidth/2,windowHeight - 120, buttonWidth, buttonHeight);
         registerButton.addActionListener(this);  // enables button
-        registerButton.setText("Criar conta");
+        registerButton.setText("Sign Up");
         registerButton.setFocusable(false);
         registerButton.setFont(new Font("myText", Font.BOLD|Font.ITALIC,14));
         registerButton.setBackground(new Color(255,255,255));
@@ -60,6 +66,8 @@ public class LoginUI extends JFrame implements ActionListener {
         usernameLabel.setText("Username");
         passwordLabel.setBounds(windowWidth/2 - buttonWidth/2 - 60 ,windowHeight - 326, buttonWidth, buttonHeight + 20);
         passwordLabel.setText("Password");
+        createAccountLabel.setBounds(windowWidth/2 - buttonWidth/2 ,windowHeight - 160, buttonWidth, buttonHeight + 20);
+        createAccountLabel.setText("First time on Lose It?");
         loginStatus.setBounds(windowWidth/2 - buttonWidth,windowHeight - 140, buttonWidth*3, buttonHeight - 10);
 
 
@@ -77,6 +85,7 @@ public class LoginUI extends JFrame implements ActionListener {
         this.add(usernameField);
         this.add(usernameLabel);
         this.add(passwordLabel);
+        this.add(createAccountLabel);
         this.add(passwordField);
         this.add(loginStatus);
 
@@ -107,12 +116,13 @@ public class LoginUI extends JFrame implements ActionListener {
                 loginStatus.setForeground(Color.red);
                 loginStatus.setText("Username or password are incorrect");
                 passwordField.setText("");   //if login fails then password gets deleted
-                authentication = true;
+                authentication = false;
 
             }
 
         } else if(e.getSource() == registerButton){
             System.out.println("Registe-se");
+            register = true;
 
             //open new window
         }
