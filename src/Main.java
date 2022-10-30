@@ -5,7 +5,7 @@ public class Main {
         LoginUI myLogin = new LoginUI();
         RegisterUI myRegister;
 
-        //texto = LoginUI.getUsername();
+        //texto = LoginUI.getUsername()
         while(true){
             if(myLogin.getregister()){
                 myRegister = new RegisterUI();
