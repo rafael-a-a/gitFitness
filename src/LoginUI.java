@@ -13,6 +13,7 @@ public class LoginUI extends JFrame implements ActionListener{
     JLabel createAccountLabel;
     JTextField usernameField;
     JPasswordField passwordField;
+    JLabel logoLabel;
 
     private boolean authentication = false;
     private boolean register = false;
@@ -35,16 +36,20 @@ public class LoginUI extends JFrame implements ActionListener{
         usernameField = new JTextField();
         passwordField = new JPasswordField();    //hides password when writing
         createAccountLabel = new JLabel();
+        logoLabel = new JLabel();
 
         final int buttonWidth = 120;
         final int buttonHeight = 30;
         final int windowWidth = 700;
         final int windowHeight = 700;
 
+
+
         loginButton.setBounds(windowWidth/2 - buttonWidth/2,windowHeight - 270, buttonWidth, buttonHeight);
         loginButton.addActionListener(this);  // enables button
         loginButton.setText("Login" );
         loginButton.setFocusable(false);
+
         loginButton.setFont(new Font("myText", Font.BOLD|Font.ITALIC,14));
         loginButton.setBackground(new Color(255,255,255));
         loginButton.setBorder(BorderFactory.createEtchedBorder());
@@ -74,6 +79,18 @@ public class LoginUI extends JFrame implements ActionListener{
         createAccountLabel.setText("First time on Lose It?");
         loginStatus.setBounds(windowWidth/2 - buttonWidth,windowHeight - 220, buttonWidth*3, buttonHeight - 10);
 
+        ImageIcon icon = new ImageIcon("src/logo4.png");
+        ImageIcon testicon = new ImageIcon("src/logo3.png");
+
+
+        logoLabel.setBounds(240 ,0, 250, 220);
+        logoLabel.setIcon(icon);
+
+        JLabel test = new JLabel();
+
+        test.setBounds(300 ,450, 150, 120);
+        test.setIcon(testicon);
+
 
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -83,6 +100,7 @@ public class LoginUI extends JFrame implements ActionListener{
         //this.setExtendedState(MAXIMIZED_BOTH);     //OPEN IN FULL WINDOW
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.setIconImage(icon.getImage());
         this.setVisible(true);
         this.add(loginButton);
         this.add(registerButton);
@@ -92,6 +110,8 @@ public class LoginUI extends JFrame implements ActionListener{
         this.add(createAccountLabel);
         this.add(passwordField);
         this.add(loginStatus);
+        this.add(logoLabel);
+        this.add(test);
 
     }
 

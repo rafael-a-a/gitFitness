@@ -67,6 +67,12 @@ public class RegisterUI extends JFrame implements ActionListener, MouseListener,
 
         createStatus.setBounds(windowWidth/2 - buttonWidth/2 - 10,windowHeight - 220, buttonWidth*3, buttonHeight - 10);
 
+        ImageIcon icon = new ImageIcon("src/logo4.png");
+        JLabel logoLabel = new JLabel();
+
+        logoLabel.setBounds(240 ,0, 250, 220);
+        logoLabel.setIcon(icon);
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.setSize(windowWidth, windowHeight);
@@ -83,6 +89,7 @@ public class RegisterUI extends JFrame implements ActionListener, MouseListener,
         this.add(confirmpassField);
         this.add(nameField);
         this.add(createStatus);
+        this.add(logoLabel);
     }
     @Override
     public void actionPerformed(ActionEvent e){
