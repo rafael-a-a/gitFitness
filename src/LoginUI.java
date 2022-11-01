@@ -138,6 +138,9 @@ public class LoginUI extends JFrame implements ActionListener{
                 loginStatus.setVisible(true);
                 */
                 loginButton.setEnabled(false);
+                MainMenuUI myMenuUI = new MainMenuUI();
+                this.dispose();
+
             }else{
                 loginStatus.setFont(new Font("",Font.ITALIC,14));
                 loginStatus.setForeground(Color.red);
