@@ -96,7 +96,7 @@ public class LoginUI extends JFrame implements ActionListener{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.setSize(windowWidth, windowHeight);
-        this.getContentPane().setBackground(new Color(224,255,255));
+        this.getContentPane().setBackground(new Color(255,255,200));
         //this.setExtendedState(MAXIMIZED_BOTH);     //OPEN IN FULL WINDOW
         this.setLocationRelativeTo(null);
         this.setResizable(false);

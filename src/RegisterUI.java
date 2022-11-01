@@ -95,18 +95,23 @@ public class RegisterUI extends JFrame implements ActionListener, MouseListener,
     public void actionPerformed(ActionEvent e){
 
         if(e.getSource() == createButton){
-            if(String.valueOf(passwordField.getPassword()).equals(String.valueOf(confirmpassField.getPassword()))){
-                User u = new User(nameField.getText(),emailField.getText(),String.valueOf(passwordField.getPassword()),phoneField.getText());
-                d.signIn(u);
-                createStatus.setFont(new Font("",Font.ITALIC,14));
-                createStatus.setForeground(Color.green);
-                createStatus.setBounds(windowWidth/2 - buttonWidth/2 - 12,windowHeight - 220, buttonWidth*3, buttonHeight - 10);
-                createStatus.setText("Your account has been created!");
+            if(RegisterBE.checkPassword(passwordField.getPassword(), confirmpassField.getPassword()) && RegisterBE.emailVerificationPattern(emailField.getText())){
+
+                    User u = new User(nameField.getText(),emailField.getText(),String.valueOf(passwordField.getPassword()),phoneField.getText());
+                    d.signIn(u);
+                    createStatus.setFont(new Font("",Font.ITALIC,14));
+                    createStatus.setForeground(Color.green);
+                    createStatus.setBounds(windowWidth/2 - buttonWidth/2 - 12,windowHeight - 220, buttonWidth*3, buttonHeight - 10);
+                    createStatus.setText("Your account has been created!");
+
 
             }else{
                 createStatus.setFont(new Font("",Font.ITALIC,14));
                 createStatus.setForeground(Color.red);
-                createStatus.setText("Your passwords don´t match");
+                if(!RegisterBE.checkPassword(passwordField.getPassword(), confirmpassField.getPassword()))
+                    createStatus.setText("Your passwords don´t match");
+                else
+                    createStatus.setText("  Your email is not valid");
             }
 
         }
