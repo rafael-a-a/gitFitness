@@ -95,7 +95,10 @@ public class RegisterUI extends JFrame implements ActionListener, MouseListener,
     public void actionPerformed(ActionEvent e){
 
         if(e.getSource() == createButton){
-            if(RegisterBE.checkPassword(passwordField.getPassword(), confirmpassField.getPassword()) && RegisterBE.emailVerificationPattern(emailField.getText())){
+
+            boolean passwordsMatch = RegisterBE.checkPassword(passwordField.getPassword(), confirmpassField.getPassword());
+
+            if(passwordsMatch && RegisterBE.emailVerificationPattern(emailField.getText())){
 
                     User u = new User(nameField.getText(),emailField.getText(),String.valueOf(passwordField.getPassword()),phoneField.getText());
                     d.signIn(u);
@@ -108,7 +111,7 @@ public class RegisterUI extends JFrame implements ActionListener, MouseListener,
             }else{
                 createStatus.setFont(new Font("",Font.ITALIC,14));
                 createStatus.setForeground(Color.red);
-                if(!RegisterBE.checkPassword(passwordField.getPassword(), confirmpassField.getPassword()))
+                if(!passwordsMatch)
                     createStatus.setText("Your passwords don´t match");
                 else
                     createStatus.setText("  Your email is not valid");
