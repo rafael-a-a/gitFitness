@@ -17,6 +17,14 @@ public class MainMenuUI extends JFrame implements ActionListener{
 
     MainMenuUI(){
         ImageIcon bigImage = new ImageIcon("src/logo1.png");
+        ImageIcon workoutIcon = new ImageIcon("src/Treino.png");
+        ImageIcon workoutPressed = new ImageIcon("src/TreinoClick.png");
+        ImageIcon settingsIcon = new ImageIcon("src/Definições.png");
+        ImageIcon settingsPressed = new ImageIcon("src/DefiniçõesClick.png");
+        ImageIcon progressIcon = new ImageIcon("src/Progresso.png");
+        ImageIcon progressPressed = new ImageIcon("src/ProgressoClick.png");
+        ImageIcon objectivesIcon = new ImageIcon("src/Objetivos.png");
+        ImageIcon objectivesPressed = new ImageIcon("src/ObjetivosClick.png");
 
         bigImagLabel = new JLabel();   //creates a new label
         bigImagLabel.setIcon(bigImage);
@@ -35,55 +43,79 @@ public class MainMenuUI extends JFrame implements ActionListener{
         //ImageIcon workoutIcon = new ImageIcon();  //for when we have an icon
 
         workout = new JButton();    //creates a new button
+        //-----Button icon-----
+        workout.setFocusPainted(false); // Removes focus lines
+        workout.setBorderPainted(false);    //Removes border
+        workout.setContentAreaFilled(false);    //Removes background
+        workout.setPressedIcon(workoutPressed);   //Changes icon (when pressed)
+        workout.setIcon(workoutIcon);
+        //-----Button configuration-----
         workout.setBounds(20, 20, 250, 100);
         workout.addActionListener(this);
         workout.setText("TREINO");  //set text of button
         workout.setFocusable(false);
-        //workout.setIcon(workoutIcon);
         workout.setVerticalTextPosition(JButton.CENTER);
         workout.setHorizontalTextPosition(JButton.CENTER);
         workout.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 30));
         workout.setIconTextGap(-15);
-        workout.setBackground(new Color(255, 62, 120));
+        //workout.setBackground(new Color(255, 62, 120));
 
 
         objectives = new JButton();    //creates a new button
+
+        objectives.setFocusPainted(false); // Removes focus lines
+        objectives.setBorderPainted(false);    //Removes border
+        objectives.setContentAreaFilled(false);    //Removes background
+        objectives.setPressedIcon(objectivesPressed);   //Changes icon (when pressed)
+        objectives.setIcon(objectivesIcon);
+
         objectives.setBounds(20, 130, 250, 100);
         objectives.addActionListener(this);
         objectives.setText("OBJETIVOS");  //set text of button
         objectives.setFocusable(false);
-        //objectives.setIcon(objectivesIcon);
         objectives.setVerticalTextPosition(JButton.CENTER);
         objectives.setHorizontalTextPosition(JButton.CENTER);
         objectives.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 30));
         objectives.setIconTextGap(-15);
-        objectives.setBackground(new Color(62, 255, 147));
+        //objectives.setBackground(new Color(62, 255, 147));
 
 
         progress = new JButton();    //creates a new button
+
+        progress.setFocusPainted(false); // Removes focus lines
+        progress.setBorderPainted(false);    //Removes border
+        progress.setContentAreaFilled(false);    //Removes background
+        progress.setPressedIcon(progressPressed);   //Changes icon (when pressed)
+        progress.setIcon(progressIcon);
+
         progress.setBounds(20, 240, 250, 100);
         progress.addActionListener(this);
         progress.setText("PROGRESSO");  //set text of button
         progress.setFocusable(false);
-        //progress.setIcon(progressIcon);
         progress.setVerticalTextPosition(JButton.CENTER);
         progress.setHorizontalTextPosition(JButton.CENTER);
         progress.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 30));
         progress.setIconTextGap(-15);
-        progress.setBackground(new Color(62, 123, 255));
+        //progress.setBackground(new Color(62, 123, 255));
 
 
         settings = new JButton();    //creates a new button
+
+        settings.setFocusPainted(false); // Removes focus lines
+        settings.setBorderPainted(false);    //Removes border
+        settings.setContentAreaFilled(false);    //Removes background
+        settings.setPressedIcon(settingsPressed);   //Changes icon (when pressed)
+        settings.setIcon(settingsIcon);
+
         settings.setBounds(20, 500, 250, 100);
         settings.addActionListener(this);
         settings.setText("DEFINIÇÕES");  //set text of button
         settings.setFocusable(false);
-        //settings.setIcon(settingsIcon);
         settings.setVerticalTextPosition(JButton.CENTER);
         settings.setHorizontalTextPosition(JButton.CENTER);
         settings.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 30));
         settings.setIconTextGap(-15);
-        settings.setBackground(new Color(255, 229, 62));
+        //settings.setBackground(new Color(255, 229, 62));
 
 
         this.setTitle("Lose it");  //Sets title of the frame
