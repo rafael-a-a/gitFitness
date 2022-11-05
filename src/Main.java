@@ -4,7 +4,7 @@ public class Main {
 
         LoginUI myLogin = new LoginUI();
         RegisterUI myRegister;
-
+        MainMenuUI myMenuUI = new MainMenuUI();
         //texto = LoginUI.getUsername()
         while(true){
             if(myLogin.getregister()){
@@ -12,7 +12,7 @@ public class Main {
 
                 break;
             }
-            System.out.println("hello");
+            //System.out.println("hello");
         }
     }
 }

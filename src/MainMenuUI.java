@@ -16,15 +16,15 @@ public class MainMenuUI extends JFrame implements ActionListener{
     JPanel imagPanel;
 
     MainMenuUI(){
-        ImageIcon bigImage = new ImageIcon("src/logo1.png");
-        ImageIcon workoutIcon = new ImageIcon("src/Treino.png");
-        ImageIcon workoutPressed = new ImageIcon("src/TreinoClick.png");
-        ImageIcon settingsIcon = new ImageIcon("src/Definições.png");
-        ImageIcon settingsPressed = new ImageIcon("src/DefiniçõesClick.png");
-        ImageIcon progressIcon = new ImageIcon("src/Progresso.png");
-        ImageIcon progressPressed = new ImageIcon("src/ProgressoClick.png");
-        ImageIcon objectivesIcon = new ImageIcon("src/Objetivos.png");
-        ImageIcon objectivesPressed = new ImageIcon("src/ObjetivosClick.png");
+        ImageIcon bigImage = new ImageIcon("src/icons/logo1.png");
+        ImageIcon workoutIcon = new ImageIcon("src/icons/Treino.png");
+        ImageIcon workoutPressed = new ImageIcon("src/icons/TreinoClick.png");
+        ImageIcon settingsIcon = new ImageIcon("src/icons/Definições.png");
+        ImageIcon settingsPressed = new ImageIcon("src/icons/DefiniçõesClick.png");
+        ImageIcon progressIcon = new ImageIcon("src/icons/Progresso.png");
+        ImageIcon progressPressed = new ImageIcon("src/icons/ProgressoClick.png");
+        ImageIcon objectivesIcon = new ImageIcon("src/icons/Objetivos.png");
+        ImageIcon objectivesPressed = new ImageIcon("src/icons/ObjetivosClick.png");
 
         bigImagLabel = new JLabel();   //creates a new label
         bigImagLabel.setIcon(bigImage);
@@ -124,7 +124,7 @@ public class MainMenuUI extends JFrame implements ActionListener{
         this.setSize(900,700); //sets the x-dimension and the y-dimension of the window
         this.setLayout(null);
         this.setVisible(true); //make frame visible
-        ImageIcon image = new ImageIcon("src/logo4.png"); //create an ImageIcon
+        ImageIcon image = new ImageIcon("src/icons/logo4.png"); //create an ImageIcon
         this.setIconImage(image.getImage());    //change icon of frame
         this.getContentPane().setBackground(new Color(116, 216, 253));       //change background color
         this.setLocationRelativeTo(null);

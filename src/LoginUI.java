@@ -79,8 +79,8 @@ public class LoginUI extends JFrame implements ActionListener{
         createAccountLabel.setText("First time on Lose It?");
         loginStatus.setBounds(windowWidth/2 - buttonWidth,windowHeight - 220, buttonWidth*3, buttonHeight - 10);
 
-        ImageIcon icon = new ImageIcon("src/logo4.png");
-        ImageIcon testicon = new ImageIcon("src/logo3.png");
+        ImageIcon icon = new ImageIcon("src/icons/logo4.png");
+        ImageIcon testicon = new ImageIcon("src/icons/logo3.png");
 
 
         logoLabel.setBounds(240 ,0, 250, 220);
