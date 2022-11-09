@@ -14,6 +14,8 @@ public class MainMenuUI extends JFrame implements ActionListener{
 
     JLabel bigImagLabel;
     JPanel imagPanel;
+    JPanel buttonsPanel;
+    JPanel settingsPanel;
 
     MainMenuUI(){
         ImageIcon bigImage = new ImageIcon("src/icons/logo1.png");
@@ -37,6 +39,17 @@ public class MainMenuUI extends JFrame implements ActionListener{
         imagPanel.setBounds(300, 20, 500, 400);
         //imagPanel.setLayout(null);
         imagPanel.add(bigImagLabel);
+
+
+        buttonsPanel = new JPanel();
+        buttonsPanel.setBackground(new Color(189,222,228));
+        buttonsPanel.setPreferredSize(new Dimension(270,100));
+
+
+        settingsPanel = new JPanel();
+        settingsPanel.setBackground(new Color(189,222,228));
+        settingsPanel.setPreferredSize(new Dimension(100,200));
+        settingsPanel.setLayout(new BorderLayout());
 
 
 
@@ -118,21 +131,32 @@ public class MainMenuUI extends JFrame implements ActionListener{
         //settings.setBackground(new Color(255, 229, 62));
 
 
+
+        buttonsPanel.add(workout);
+        buttonsPanel.add(objectives);
+        buttonsPanel.add(progress);
+        settingsPanel.add(settings, BorderLayout.WEST);
+
+
         this.setTitle("Lose it");  //Sets title of the frame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //exit out of application
         this.setResizable(true); // don't allow frame to be resized
         this.setSize(900,700); //sets the x-dimension and the y-dimension of the window
-        this.setLayout(null);
+        this.setLayout(new BorderLayout());
         this.setVisible(true); //make frame visible
         ImageIcon image = new ImageIcon("src/icons/logo4.png"); //create an ImageIcon
         this.setIconImage(image.getImage());    //change icon of frame
         this.getContentPane().setBackground(new Color(183, 222, 236));       //change background color
         this.setLocationRelativeTo(null);
-        this.add(workout);
+
+        /*this.add(workout);
         this.add(objectives);
         this.add(progress);
-        this.add(settings);
-        this.add(imagPanel);
+        this.add(settings);*/
+        this.add(buttonsPanel, BorderLayout.WEST);
+        this.add(settingsPanel, BorderLayout.SOUTH);
+
+        this.add(imagPanel, BorderLayout.CENTER);
 
 
     }

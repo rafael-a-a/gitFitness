@@ -27,6 +27,11 @@ public class LoginUI extends JFrame implements ActionListener{
     
 
     LoginUI(){
+        ImageIcon icon = new ImageIcon("src/icons/logo4.png");
+        //ImageIcon testicon = new ImageIcon("src/icons/logo3.png");
+        ImageIcon loginButtonIcon = new ImageIcon("src/icons/loginButton.png");
+        ImageIcon loginButtonPressed = new ImageIcon("src/icons/loginButtonClick.png");
+
 
         loginButton = new JButton();
         registerButton = new JButton();
@@ -38,18 +43,26 @@ public class LoginUI extends JFrame implements ActionListener{
         createAccountLabel = new JLabel();
         logoLabel = new JLabel();
 
+
         final int buttonWidth = 120;
         final int buttonHeight = 30;
         final int windowWidth = 700;
         final int windowHeight = 700;
 
 
+        loginButton.setFocusPainted(false); // Removes focus lines
+        loginButton.setBorderPainted(false);    //Removes border
+        loginButton.setContentAreaFilled(false);    //Removes background
+        loginButton.setPressedIcon(loginButtonPressed);   //Changes icon (when pressed)
+        loginButton.setIcon(loginButtonIcon);
 
         loginButton.setBounds(windowWidth/2 - buttonWidth/2,windowHeight - 270, buttonWidth, buttonHeight);
         loginButton.addActionListener(this);  // enables button
         loginButton.setText("Login" );
         loginButton.setFocusable(false);
 
+        loginButton.setVerticalTextPosition(JButton.CENTER);
+        loginButton.setHorizontalTextPosition(JButton.CENTER);
         loginButton.setFont(new Font("myText", Font.BOLD|Font.ITALIC,14));
         loginButton.setBackground(new Color(255,255,255));
         loginButton.setBorder(BorderFactory.createEtchedBorder());
@@ -79,17 +92,15 @@ public class LoginUI extends JFrame implements ActionListener{
         createAccountLabel.setText("First time on Lose It?");
         loginStatus.setBounds(windowWidth/2 - buttonWidth,windowHeight - 220, buttonWidth*3, buttonHeight - 10);
 
-        ImageIcon icon = new ImageIcon("src/icons/logo4.png");
-        ImageIcon testicon = new ImageIcon("src/icons/logo3.png");
 
 
         logoLabel.setBounds(240 ,0, 250, 220);
         logoLabel.setIcon(icon);
 
-        JLabel test = new JLabel();
+        //JLabel test = new JLabel();
 
-        test.setBounds(300 ,450, 150, 120);
-        test.setIcon(testicon);
+        //test.setBounds(300 ,450, 150, 120);
+        //test.setIcon(testicon);
 
 
 
@@ -111,7 +122,7 @@ public class LoginUI extends JFrame implements ActionListener{
         this.add(passwordField);
         this.add(loginStatus);
         this.add(logoLabel);
-        this.add(test);
+        //this.add(test);
 
     }
 
