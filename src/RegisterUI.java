@@ -24,6 +24,9 @@ public class RegisterUI extends JFrame implements ActionListener, MouseListener,
     
     RegisterUI(){
 
+        ImageIcon createAccountIcon = new ImageIcon("src/icons/createAccountButton.png");
+        ImageIcon createAccountPressed = new ImageIcon("src/icons/createAccountButtonClick.png");
+
         emailField.setBounds(windowWidth/2 - buttonWidth/2,windowHeight - 440, buttonWidth, buttonHeight - 10);
         emailField.addKeyListener(this);
         emailField.addMouseListener(this);
@@ -57,6 +60,15 @@ public class RegisterUI extends JFrame implements ActionListener, MouseListener,
         nameField.setText("Name...");
         nameField.setForeground(Color.lightGray);
 
+
+        createButton.setFocusPainted(false); // Removes focus lines
+        createButton.setBorderPainted(false);    //Removes border
+        createButton.setContentAreaFilled(false);    //Removes background
+        createButton.setPressedIcon(createAccountPressed);   //Changes icon (when pressed)
+        createButton.setIcon(createAccountIcon);
+
+        createButton.setVerticalTextPosition(JButton.CENTER);
+        createButton.setHorizontalTextPosition(JButton.CENTER);
         createButton.setBounds(windowWidth/2 - buttonWidth/2,windowHeight - 270, buttonWidth, buttonHeight);
         createButton.addActionListener(this);  // enables button
         createButton.setText("Create Account" );

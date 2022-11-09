@@ -31,6 +31,9 @@ public class LoginUI extends JFrame implements ActionListener{
         //ImageIcon testicon = new ImageIcon("src/icons/logo3.png");
         ImageIcon loginButtonIcon = new ImageIcon("src/icons/loginButton.png");
         ImageIcon loginButtonPressed = new ImageIcon("src/icons/loginButtonClick.png");
+        ImageIcon createAccountIcon = new ImageIcon("src/icons/createAccountButton.png");
+        ImageIcon createAccountPressed = new ImageIcon("src/icons/createAccountButtonClick.png");
+
 
 
         loginButton = new JButton();
@@ -67,6 +70,15 @@ public class LoginUI extends JFrame implements ActionListener{
         loginButton.setBackground(new Color(255,255,255));
         loginButton.setBorder(BorderFactory.createEtchedBorder());
 
+
+        registerButton.setFocusPainted(false); // Removes focus lines
+        registerButton.setBorderPainted(false);    //Removes border
+        registerButton.setContentAreaFilled(false);    //Removes background
+        registerButton.setPressedIcon(createAccountPressed);   //Changes icon (when pressed)
+        registerButton.setIcon(createAccountIcon);
+
+        registerButton.setVerticalTextPosition(JButton.CENTER);
+        registerButton.setHorizontalTextPosition(JButton.CENTER);
         registerButton.setBounds(windowWidth/2 - buttonWidth/2,windowHeight - 120, buttonWidth, buttonHeight);
         registerButton.addActionListener(this);  // enables button
         registerButton.setText("Sign Up");

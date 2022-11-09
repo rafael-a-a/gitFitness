@@ -12,7 +12,7 @@ public class Main {
 
                 break;
             }
-            //System.out.println("hello");
+            System.out.println("hello");
         }
     }
 }
