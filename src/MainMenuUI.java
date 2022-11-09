@@ -17,14 +17,14 @@ public class MainMenuUI extends JFrame implements ActionListener{
 
     MainMenuUI(){
         ImageIcon bigImage = new ImageIcon("src/icons/logo1.png");
-        ImageIcon workoutIcon = new ImageIcon("src/icons/Treino.png");
-        ImageIcon workoutPressed = new ImageIcon("src/icons/TreinoClick.png");
+        ImageIcon workoutIcon = new ImageIcon("src/icons/Button.png");
+        ImageIcon workoutPressed = new ImageIcon("src/icons/ButtonClick.png");
         ImageIcon settingsIcon = new ImageIcon("src/icons/Definições.png");
         ImageIcon settingsPressed = new ImageIcon("src/icons/DefiniçõesClick.png");
-        ImageIcon progressIcon = new ImageIcon("src/icons/Progresso.png");
-        ImageIcon progressPressed = new ImageIcon("src/icons/ProgressoClick.png");
-        ImageIcon objectivesIcon = new ImageIcon("src/icons/Objetivos.png");
-        ImageIcon objectivesPressed = new ImageIcon("src/icons/ObjetivosClick.png");
+        ImageIcon progressIcon = new ImageIcon("src/icons/Button.png");
+        ImageIcon progressPressed = new ImageIcon("src/icons/ButtonClick.png");
+        ImageIcon objectivesIcon = new ImageIcon("src/icons/Button.png");
+        ImageIcon objectivesPressed = new ImageIcon("src/icons/ButtonClick.png");
 
         bigImagLabel = new JLabel();   //creates a new label
         bigImagLabel.setIcon(bigImage);
@@ -33,7 +33,7 @@ public class MainMenuUI extends JFrame implements ActionListener{
         bigImagLabel.setLayout(new BorderLayout());
 
         imagPanel = new JPanel();
-        imagPanel.setBackground(new Color(33, 192, 255));
+        imagPanel.setBackground(new Color(189, 222, 228));
         imagPanel.setBounds(300, 20, 500, 400);
         //imagPanel.setLayout(null);
         imagPanel.add(bigImagLabel);
@@ -113,20 +113,20 @@ public class MainMenuUI extends JFrame implements ActionListener{
         settings.setFocusable(false);
         settings.setVerticalTextPosition(JButton.CENTER);
         settings.setHorizontalTextPosition(JButton.CENTER);
-        settings.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 30));
+        settings.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 25));
         settings.setIconTextGap(-15);
         //settings.setBackground(new Color(255, 229, 62));
 
 
         this.setTitle("Lose it");  //Sets title of the frame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //exit out of application
-        this.setResizable(false); // don't allow frame to be resized
+        this.setResizable(true); // don't allow frame to be resized
         this.setSize(900,700); //sets the x-dimension and the y-dimension of the window
         this.setLayout(null);
         this.setVisible(true); //make frame visible
         ImageIcon image = new ImageIcon("src/icons/logo4.png"); //create an ImageIcon
         this.setIconImage(image.getImage());    //change icon of frame
-        this.getContentPane().setBackground(new Color(116, 216, 253));       //change background color
+        this.getContentPane().setBackground(new Color(183, 222, 236));       //change background color
         this.setLocationRelativeTo(null);
         this.add(workout);
         this.add(objectives);
