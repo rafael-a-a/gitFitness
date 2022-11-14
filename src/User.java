@@ -22,7 +22,9 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        int hashed = password.hashCode();
+        String passwordH = Integer.toString(hashed);
+        return passwordH;
     }
 
     public String getPhone() {
