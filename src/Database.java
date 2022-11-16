@@ -90,8 +90,9 @@ public class Database {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String realPassword = rs.getString("password");
+                String findHashed = Integer.toString(posPassword.hashCode());
 
-                if(Objects.equals(realPassword, posPassword)){
+                if(Objects.equals(realPassword, findHashed)){
                     System.out.println("Login successful with password: " + realPassword + " user ID : " + id);
                     rs.close();
                     stmt.close();
