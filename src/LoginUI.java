@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class LoginUI extends JFrame implements ActionListener, MouseListener, KeyListener {
+public class LoginUI extends JFrame implements ActionListener{
 
     Database d = new Database();
     JButton loginButton;
@@ -13,6 +13,7 @@ public class LoginUI extends JFrame implements ActionListener, MouseListener, Ke
     JLabel createAccountLabel;
     JTextField usernameField;
     JPasswordField passwordField;
+    JLabel logoLabel;
 
     private boolean authentication = false;
     private boolean register = false;
@@ -26,6 +27,14 @@ public class LoginUI extends JFrame implements ActionListener, MouseListener, Ke
     
 
     LoginUI(){
+        ImageIcon icon = new ImageIcon("src/icons/logo4.png");
+        //ImageIcon testicon = new ImageIcon("src/icons/logo3.png");
+        ImageIcon loginButtonIcon = new ImageIcon("src/icons/loginButton.png");
+        ImageIcon loginButtonPressed = new ImageIcon("src/icons/loginButtonClick.png");
+        ImageIcon createAccountIcon = new ImageIcon("src/icons/createAccountButton.png");
+        ImageIcon createAccountPressed = new ImageIcon("src/icons/createAccountButtonClick.png");
+
+
 
         loginButton = new JButton();
         registerButton = new JButton();
@@ -35,20 +44,41 @@ public class LoginUI extends JFrame implements ActionListener, MouseListener, Ke
         usernameField = new JTextField();
         passwordField = new JPasswordField();    //hides password when writing
         createAccountLabel = new JLabel();
+        logoLabel = new JLabel();
+
 
         final int buttonWidth = 120;
         final int buttonHeight = 30;
         final int windowWidth = 700;
         final int windowHeight = 700;
 
+
+        loginButton.setFocusPainted(false); // Removes focus lines
+        loginButton.setBorderPainted(false);    //Removes border
+        loginButton.setContentAreaFilled(false);    //Removes background
+        loginButton.setPressedIcon(loginButtonPressed);   //Changes icon (when pressed)
+        loginButton.setIcon(loginButtonIcon);
+
         loginButton.setBounds(windowWidth/2 - buttonWidth/2,windowHeight - 270, buttonWidth, buttonHeight);
         loginButton.addActionListener(this);  // enables button
         loginButton.setText("Login" );
         loginButton.setFocusable(false);
+
+        loginButton.setVerticalTextPosition(JButton.CENTER);
+        loginButton.setHorizontalTextPosition(JButton.CENTER);
         loginButton.setFont(new Font("myText", Font.BOLD|Font.ITALIC,14));
         loginButton.setBackground(new Color(255,255,255));
         loginButton.setBorder(BorderFactory.createEtchedBorder());
 
+
+        registerButton.setFocusPainted(false); // Removes focus lines
+        registerButton.setBorderPainted(false);    //Removes border
+        registerButton.setContentAreaFilled(false);    //Removes background
+        registerButton.setPressedIcon(createAccountPressed);   //Changes icon (when pressed)
+        registerButton.setIcon(createAccountIcon);
+
+        registerButton.setVerticalTextPosition(JButton.CENTER);
+        registerButton.setHorizontalTextPosition(JButton.CENTER);
         registerButton.setBounds(windowWidth/2 - buttonWidth/2,windowHeight - 120, buttonWidth, buttonHeight);
         registerButton.addActionListener(this);  // enables button
         registerButton.setText("Sign Up");
@@ -59,10 +89,10 @@ public class LoginUI extends JFrame implements ActionListener, MouseListener, Ke
 
 
         usernameField.setBounds(windowWidth/2 - buttonWidth/2,windowHeight - 340, buttonWidth, buttonHeight - 10);
-        usernameField.setText("username");
-        usernameField.setForeground(Color.gray);
-        usernameField.addMouseListener(this);
-        usernameField.addKeyListener(this);
+        //usernameField.setText("username");
+        //usernameField.setForeground(Color.gray);
+        //usernameField.addMouseListener(this);
+        //usernameField.addKeyListener(this);
 
         passwordField.setBounds(windowWidth/2 - buttonWidth/2,windowHeight - 310, buttonWidth, buttonHeight - 10);
 
@@ -76,13 +106,24 @@ public class LoginUI extends JFrame implements ActionListener, MouseListener, Ke
 
 
 
+        logoLabel.setBounds(240 ,0, 250, 220);
+        logoLabel.setIcon(icon);
+
+        //JLabel test = new JLabel();
+
+        //test.setBounds(300 ,450, 150, 120);
+        //test.setIcon(testicon);
+
+
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.setSize(windowWidth, windowHeight);
-        this.getContentPane().setBackground(new Color(224,255,255));
+        this.getContentPane().setBackground(new Color(255,255,200));
         //this.setExtendedState(MAXIMIZED_BOTH);     //OPEN IN FULL WINDOW
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.setIconImage(icon.getImage());
         this.setVisible(true);
         this.add(loginButton);
         this.add(registerButton);
@@ -92,6 +133,8 @@ public class LoginUI extends JFrame implements ActionListener, MouseListener, Ke
         this.add(createAccountLabel);
         this.add(passwordField);
         this.add(loginStatus);
+        this.add(logoLabel);
+        //this.add(test);
 
     }
 
@@ -112,12 +155,15 @@ public class LoginUI extends JFrame implements ActionListener, MouseListener, Ke
 
             if(d.checkLogin(uID,password, phonen)) {
                 //System.out.println(usernameField.getText() + " is logged in\n");
-                loginStatus.setFont(new Font("",Font.ITALIC,14));
+                /*loginStatus.setFont(new Font("",Font.ITALIC,14));
                 loginStatus.setForeground(Color.green);
                 loginStatus.setText("                  Welcome " + usernameField.getText());
                 loginStatus.setVisible(true);
-
+                */
                 loginButton.setEnabled(false);
+                MainMenuUI myMenuUI = new MainMenuUI();
+                this.dispose();
+
             }else{
                 loginStatus.setFont(new Font("",Font.ITALIC,14));
                 loginStatus.setForeground(Color.red);
@@ -135,7 +181,7 @@ public class LoginUI extends JFrame implements ActionListener, MouseListener, Ke
         }
     }
 
-
+/*                  Not necessary right now
     @Override
     public void mouseClicked(MouseEvent e) {
         if(e.getSource() == usernameField) {
@@ -183,5 +229,5 @@ public class LoginUI extends JFrame implements ActionListener, MouseListener, Ke
     @Override
     public void keyReleased(KeyEvent e) {
 
-    }
+    }*/
 }
