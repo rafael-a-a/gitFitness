@@ -1,3 +1,5 @@
+import org.postgresql.ds.common.BaseDataSource;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
