@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class User {
     public String name, email, password, phone, gender;
-    public int age;
+    public String birthDate, id;
     public double weight, height, bodyFat, imcValue;
     public WorkoutItem[] woItem;
     public Workout[] Wo;
@@ -24,7 +24,9 @@ public class User {
     public String getEmail() {
         return email;
     }
-
+    public String getGender() {
+        return gender;
+    }
     public String getPassword() {
         int hashed = password.hashCode();
         String passwordH = Integer.toString(hashed);
@@ -34,7 +36,17 @@ public class User {
     public String getPhone() {
         return phone;
     }
+    public String getBirthDate() {return birthDate; }
 
+    public double getHeight() {return height; }
+
+    public double getWeight() {return weight; }
+
+    public double getBodyFat() {return bodyFat; }
+
+    public double getImcValue() {
+        return weight/Math.pow(height, 2);
+    }
     public void setEmail(String email) {
         this.email = email;
     }

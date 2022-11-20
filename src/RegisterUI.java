@@ -135,8 +135,9 @@ public class RegisterUI extends JFrame implements ActionListener, MouseListener,
 
             if(passwordsMatch && RegisterBE.emailVerificationPattern(emailField.getText())){
 
+                    // esta declaração do user tem de ser revista para ir de acordo com a nova função getUserData da classe Database
                     User u = new User(nameField.getText(),emailField.getText(),String.valueOf(passwordField.getPassword()),phoneField.getText());
-                    d.signIn(u);
+                    d.signUp(u);
                     createStatus.setFont(new Font("",Font.ITALIC,14));
                     createStatus.setForeground(Color.green);
                     createStatus.setBounds(windowWidth/2 - buttonWidth/2 - 12,windowHeight - 220, buttonWidth*3, buttonHeight - 10);

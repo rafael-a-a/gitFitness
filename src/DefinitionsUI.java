@@ -70,6 +70,7 @@ public class DefinitionsUI extends JFrame implements ActionListener {
 
 //-------------------------------Labels--------------------------------------------
         textLabel = new JLabel();
+        // esta janela devia se chamar settings
         textLabel.setText("DEFINITIONS");
         textLabel.setVerticalAlignment(JLabel.TOP);
         textLabel.setHorizontalAlignment(JLabel.CENTER);
