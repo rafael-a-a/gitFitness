@@ -16,8 +16,11 @@ public class MainMenuUI extends JFrame implements ActionListener{
     JPanel imagPanel;
     JPanel buttonsPanel;
     JPanel settingsPanel;
+    private User currentUser;
 
-    MainMenuUI(){
+    MainMenuUI(User u){
+
+        currentUser = u;
         ImageIcon bigImage = new ImageIcon("src/icons/logo1.png");
         ImageIcon workoutIcon = new ImageIcon("src/icons/Button.png");
         ImageIcon workoutPressed = new ImageIcon("src/icons/ButtonClick.png");
@@ -171,7 +174,7 @@ public class MainMenuUI extends JFrame implements ActionListener{
             System.out.println("progress");
         } else if (e.getSource()==settings) {
             this.dispose();
-            DefinitionsUI myDef = new DefinitionsUI();
+            DefinitionsUI myDef = new DefinitionsUI(currentUser);
             System.out.println("settings");
         }
     }

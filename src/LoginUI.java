@@ -153,9 +153,10 @@ public class LoginUI extends JFrame implements ActionListener{
             password = String.valueOf(passwordField.getPassword()); // this method returns char[], not a String
 
 
-            if(d.checkLogin(uID,password, phonen)) {
+            if(d.checkLogin(uID,password, phonen)) { //if login is verified, then opens main menu
                 loginButton.setEnabled(false);
-                MainMenuUI myMenuUI = new MainMenuUI();
+                User u = new User(uID,password);
+                MainMenuUI myMenuUI = new MainMenuUI(u);
                 this.dispose();
 
             }else{

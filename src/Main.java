@@ -7,3 +7,5 @@ public class Main {
 
     }
 }
+//criar mainmenu com parametro user dado pelo login
+//ao fazer login, ir à data base buscar os dados adicionais para criar user e enviar esse user para mainmenu

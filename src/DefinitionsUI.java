@@ -18,11 +18,13 @@ public class DefinitionsUI extends JFrame implements ActionListener {
     JPanel topPanel;
     JPanel goBackPanel;
     JPanel buttonsPanel;
+    private User currentUser;
 
 
 
-    DefinitionsUI(){
+    DefinitionsUI(User u){
 
+        currentUser = u;
         ImageIcon backImage = new ImageIcon("src/icons/Button.png");
         ImageIcon backPressed = new ImageIcon("src/icons/ButtonClick.png");
         ImageIcon image = new ImageIcon("src/icons/logo4.png"); //create an ImageIcon
@@ -131,7 +133,7 @@ public class DefinitionsUI extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == goBackButton){
             this.dispose();
-            MainMenuUI myMenuUI = new MainMenuUI();
+            MainMenuUI myMenuUI = new MainMenuUI(currentUser);
             System.out.println("workout");
         }else if(e.getSource() == changePass){
             System.out.println("change pass");
