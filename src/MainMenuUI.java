@@ -170,6 +170,8 @@ public class MainMenuUI extends JFrame implements ActionListener{
         } else if (e.getSource()==progress) {
             System.out.println("progress");
         } else if (e.getSource()==settings) {
+            this.dispose();
+            DefinitionsUI myDef = new DefinitionsUI();
             System.out.println("settings");
         }
     }

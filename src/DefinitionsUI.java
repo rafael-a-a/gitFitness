@@ -125,7 +125,9 @@ public class DefinitionsUI extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == goBackButton) {
+        if (e.getSource() == goBackButton){
+            this.dispose();
+            MainMenuUI myMenuUI = new MainMenuUI();
             System.out.println("workout");
         }
     }
