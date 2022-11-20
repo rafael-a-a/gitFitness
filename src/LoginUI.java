@@ -176,6 +176,8 @@ public class LoginUI extends JFrame implements ActionListener{
         } else if(e.getSource() == registerButton){
             System.out.println("Registe-se");
             register = true;
+            this.dispose();
+            RegisterUI myRegister = new RegisterUI();
 
             //open new window
         }

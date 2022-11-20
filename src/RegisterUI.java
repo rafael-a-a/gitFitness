@@ -7,6 +7,7 @@ import java.awt.event.*;
 public class RegisterUI extends JFrame implements ActionListener, MouseListener, KeyListener {
 
     JButton createButton = new JButton();
+    JButton loginButton = new JButton();
     JTextField emailField = new JTextField();
     JTextField idField = new JTextField();
     JTextField phoneField = new JTextField();
@@ -81,6 +82,24 @@ public class RegisterUI extends JFrame implements ActionListener, MouseListener,
 
         createStatus.setBounds(windowWidth/2 - buttonWidth/2 - 10,windowHeight - 220, buttonWidth*3, buttonHeight - 10);
 
+
+        loginButton.setVisible(true);
+        loginButton.setFocusPainted(false); // Removes focus lines
+        loginButton.setBorderPainted(false);    //Removes border
+        loginButton.setContentAreaFilled(false);
+        loginButton.setPressedIcon(createAccountPressed);   //Changes icon (when pressed)
+        loginButton.setIcon(createAccountIcon);
+        loginButton.setVerticalTextPosition(JButton.CENTER);
+        loginButton.setHorizontalTextPosition(JButton.CENTER);
+        loginButton.setBounds(windowWidth/2 - buttonWidth/2,windowHeight - 100, buttonWidth, buttonHeight);
+        loginButton.setText("Back to Login");
+        loginButton.setFocusable(false);
+        loginButton.setFont(new Font("myText", Font.BOLD|Font.ITALIC,14));
+        loginButton.setBackground(new Color(255, 255, 255, 255));
+        loginButton.setBorder(BorderFactory.createEtchedBorder());
+
+
+
         ImageIcon icon = new ImageIcon("src/icons/logo4.png");
         JLabel logoLabel = new JLabel();
 
@@ -95,6 +114,7 @@ public class RegisterUI extends JFrame implements ActionListener, MouseListener,
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setVisible(true);
+        this.add(loginButton);
         this.add(createButton);
         this.add(idField);
         this.add(emailField);
@@ -131,6 +151,10 @@ public class RegisterUI extends JFrame implements ActionListener, MouseListener,
                     createStatus.setText("  Your email is not valid");
             }
 
+        }
+        if(e.getSource() == loginButton){
+            this.dispose();
+            LoginUI myLogin = new LoginUI();
         }
         
     }
