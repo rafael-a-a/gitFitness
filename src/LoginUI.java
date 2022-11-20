@@ -153,15 +153,10 @@ public class LoginUI extends JFrame implements ActionListener{
             password = String.valueOf(passwordField.getPassword()); // this method returns char[], not a String
 
 
-            if(d.checkLogin(uID,password, phonen)) {
-                //System.out.println(usernameField.getText() + " is logged in\n");
-                /*loginStatus.setFont(new Font("",Font.ITALIC,14));
-                loginStatus.setForeground(Color.green);
-                loginStatus.setText("                  Welcome " + usernameField.getText());
-                loginStatus.setVisible(true);
-                */
+            if(d.checkLogin(uID,password, phonen)) { //if login is verified, then opens main menu
                 loginButton.setEnabled(false);
-                MainMenuUI myMenuUI = new MainMenuUI();
+                User u = new User(uID,password);
+                MainMenuUI myMenuUI = new MainMenuUI(u);
                 this.dispose();
 
             }else{
@@ -176,6 +171,8 @@ public class LoginUI extends JFrame implements ActionListener{
         } else if(e.getSource() == registerButton){
             System.out.println("Registe-se");
             register = true;
+            RegisterUI myRegister = new RegisterUI();
+            this.dispose();
 
             //open new window
         }

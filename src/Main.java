@@ -2,18 +2,10 @@
 public class Main {
     public static void main(String[] args) {
 
-        LoginUI myLogin = new LoginUI();
-        RegisterUI myRegister;
-        //MainMenuUI myMenuUI = new MainMenuUI();
-        DefinitionsUI myDef = new DefinitionsUI();
-        //texto = LoginUI.getUsername()
-        while(true){
-            if(myLogin.getregister()){
-                myRegister = new RegisterUI();
+        LoginUI myLogin = new LoginUI();//to start the program
 
-                break;
-            }
-            System.out.println("hello");
-        }
+
     }
 }
+//criar mainmenu com parametro user dado pelo login
+//ao fazer login, ir à data base buscar os dados adicionais para criar user e enviar esse user para mainmenu
