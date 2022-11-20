@@ -92,6 +92,7 @@ public class RegisterUI extends JFrame implements ActionListener, MouseListener,
         loginButton.setVerticalTextPosition(JButton.CENTER);
         loginButton.setHorizontalTextPosition(JButton.CENTER);
         loginButton.setBounds(windowWidth/2 - buttonWidth/2,windowHeight - 100, buttonWidth, buttonHeight);
+        loginButton.addActionListener(this);
         loginButton.setText("Back to Login");
         loginButton.setFocusable(false);
         loginButton.setFont(new Font("myText", Font.BOLD|Font.ITALIC,14));
@@ -152,8 +153,9 @@ public class RegisterUI extends JFrame implements ActionListener, MouseListener,
             }
 
         }
-        if(e.getSource() == loginButton){
+        else if(e.getSource() == loginButton){
             this.dispose();
+            System.out.println("back to login");
             LoginUI myLogin = new LoginUI();
         }
         
