@@ -154,12 +154,6 @@ public class LoginUI extends JFrame implements ActionListener{
 
 
             if(d.checkLogin(uID,password, phonen)) {
-                //System.out.println(usernameField.getText() + " is logged in\n");
-                /*loginStatus.setFont(new Font("",Font.ITALIC,14));
-                loginStatus.setForeground(Color.green);
-                loginStatus.setText("                  Welcome " + usernameField.getText());
-                loginStatus.setVisible(true);
-                */
                 loginButton.setEnabled(false);
                 MainMenuUI myMenuUI = new MainMenuUI();
                 this.dispose();
@@ -176,8 +170,8 @@ public class LoginUI extends JFrame implements ActionListener{
         } else if(e.getSource() == registerButton){
             System.out.println("Registe-se");
             register = true;
-            this.dispose();
             RegisterUI myRegister = new RegisterUI();
+            this.dispose();
 
             //open new window
         }

@@ -42,29 +42,33 @@ public class DefinitionsUI extends JFrame implements ActionListener {
         goBackButton.setLayout(new BorderLayout());
 
         changePass = new JButton();
-        changePass.setText("Mudar Palavra passe");
+        changePass.setText("Change password");
         changePass.setFocusPainted(false);
         changePass.setBorderPainted(false);
         changePass.setContentAreaFilled(true);
         changePass.setBackground(new Color(62, 255, 147));
         changePass.setPreferredSize(new Dimension(400, 50));
         changePass.setBounds(240, 0, 400, 100);
+        changePass.addActionListener(this);
 
         changeMail = new JButton();
         changeMail.setBounds(240, 100, 400, 100);
-        changeMail.setText("Mudar E-mail");
+        changeMail.setText("Change E-mail");
+        changeMail.addActionListener(this);
 
         changeData = new JButton();
         changeData.setBounds(240, 200, 400, 100);
-        changeData.setText("Alterar dados ");
+        changeData.setText("Change your data");
+        changeData.addActionListener(this);
 
         deleteAccount  = new JButton();
         deleteAccount.setBounds(240, 300, 400, 100);
-        deleteAccount.setText("Eliminar conta");
+        deleteAccount.setText("Delete your account");
+        deleteAccount.addActionListener(this);
 
 //-------------------------------Labels--------------------------------------------
         textLabel = new JLabel();
-        textLabel.setText("DEFINIÇÕES");
+        textLabel.setText("DEFINITIONS");
         textLabel.setVerticalAlignment(JLabel.TOP);
         textLabel.setHorizontalAlignment(JLabel.CENTER);
         textLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 40));
@@ -125,10 +129,18 @@ public class DefinitionsUI extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == goBackButton){
+        if(e.getSource() == goBackButton){
             this.dispose();
             MainMenuUI myMenuUI = new MainMenuUI();
             System.out.println("workout");
+        }else if(e.getSource() == changePass){
+            System.out.println("change pass");
+        }else if(e.getSource() == changeMail){
+            System.out.println("change mail");
+        }else if (e.getSource() == changeData){
+            System.out.println("change data");
+        }else if(e.getSource() == deleteAccount){
+            System.out.println("delete account");
         }
     }
 }
