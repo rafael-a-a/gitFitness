@@ -14,10 +14,6 @@ public class Database {
     public Statement stmt;
     public ResultSet rs;
 
-    /* este método ainda nao pode ser testado através interface gráfica pelo que tem de estar comentado para fazer
-    o push e o commit sem haver erros. foi no entanto testado através da consola e está a funcionar.
-     */
-
     public User getUserData(String email){
         /**
          * NAME: getUserData
