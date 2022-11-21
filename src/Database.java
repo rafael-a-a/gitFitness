@@ -17,14 +17,14 @@ public class Database {
     /* este método ainda nao pode ser testado através interface gráfica pelo que tem de estar comentado para fazer
     o push e o commit sem haver erros. foi no entanto testado através da consola e está a funcionar.
      */
-    /*
+
     public User getUserData(String email){
         /**
          * NAME: getUserData
          * RETURNS: User instance with all database information with the email provided
          * PARAMETERS:
          * * email - User's email which information must be filled
-         *//*
+         */
         User userReturn = new User();
         try {
             // Open connection to database loseit.login
@@ -56,7 +56,7 @@ public class Database {
             System.exit(0);
         }
         return userReturn;
-    } */
+    }
     public void signUp(User client){
         /**
          * NAME: signUp

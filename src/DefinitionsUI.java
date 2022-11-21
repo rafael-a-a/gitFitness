@@ -71,7 +71,7 @@ public class DefinitionsUI extends JFrame implements ActionListener {
 //-------------------------------Labels--------------------------------------------
         textLabel = new JLabel();
         // esta janela devia se chamar settings
-        textLabel.setText("DEFINITIONS");
+        textLabel.setText("SETTINGS");
         textLabel.setVerticalAlignment(JLabel.TOP);
         textLabel.setHorizontalAlignment(JLabel.CENTER);
         textLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 40));
