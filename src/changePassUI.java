@@ -9,11 +9,16 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
     JPasswordField newpassField = new JPasswordField();
     JPasswordField confirmpassField = new JPasswordField();
     JButton changePass = new JButton();
+    JTextField nameField = new JTextField();
+    JLabel textLabel = new JLabel();
     private final User currentUser;
+    private String info;
 
-    changePassUI(User u){
+    changePassUI(User u, String i){
 
+        info = i;
         currentUser = u;
+
         ImageIcon changeIcon = new ImageIcon("src/icons/createAccountButton.png");
         ImageIcon changePressed = new ImageIcon("src/icons/createAccountButtonClick.png");
 
@@ -21,27 +26,50 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
         int windowWidth = 300;
         int buttonHeight = 30;
         int buttonWidth = 160;
-        
-        passwordField.setBounds(windowWidth /2 - buttonWidth /2, windowHeight - 200, buttonWidth, buttonHeight - 10);
-        passwordField.addKeyListener(this);
-        passwordField.addMouseListener(this);
-        passwordField.setEchoChar((char)0);
-        passwordField.setText("Old password...");
-        passwordField.setForeground(Color.lightGray);
 
-        newpassField.setBounds(windowWidth /2 - buttonWidth /2, windowHeight - 170, buttonWidth, buttonHeight - 10);
-        newpassField.addKeyListener(this);
-        newpassField.addMouseListener(this);
-        newpassField.setEchoChar((char)0);
-        newpassField.setText("New password...");
-        newpassField.setForeground(Color.lightGray);
 
-        confirmpassField.setBounds(windowWidth /2 - buttonWidth /2, windowHeight - 140, buttonWidth, buttonHeight - 10);
-        confirmpassField.addMouseListener(this);
-        confirmpassField.addKeyListener(this);
-        confirmpassField.setEchoChar((char)0);
-        confirmpassField.setText("Confirm your password...");
-        confirmpassField.setForeground(Color.lightGray);
+        if(info.equals("pass")){
+            textLabel = new JLabel();
+            // esta janela devia se chamar settings
+            textLabel.setText("Change your password");
+            textLabel.setBounds(windowWidth /2 - buttonWidth /2, windowHeight - 250, buttonWidth, buttonHeight - 10);
+            textLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 14));
+
+            passwordField.setBounds(windowWidth /2 - buttonWidth /2, windowHeight - 200, buttonWidth, buttonHeight - 10);
+            passwordField.addKeyListener(this);
+            passwordField.addMouseListener(this);
+            passwordField.setEchoChar((char)0);
+            passwordField.setText("Old password...");
+            passwordField.setForeground(Color.lightGray);
+
+            newpassField.setBounds(windowWidth /2 - buttonWidth /2, windowHeight - 170, buttonWidth, buttonHeight - 10);
+            newpassField.addKeyListener(this);
+            newpassField.addMouseListener(this);
+            newpassField.setEchoChar((char)0);
+            newpassField.setText("New password...");
+            newpassField.setForeground(Color.lightGray);
+
+            confirmpassField.setBounds(windowWidth /2 - buttonWidth /2, windowHeight - 140, buttonWidth, buttonHeight - 10);
+            confirmpassField.addMouseListener(this);
+            confirmpassField.addKeyListener(this);
+            confirmpassField.setEchoChar((char)0);
+            confirmpassField.setText("Confirm your password...");
+            confirmpassField.setForeground(Color.lightGray);
+
+        }else if(info.equals("name")){
+            textLabel = new JLabel();
+            // esta janela devia se chamar settings
+            textLabel.setText("Change your name");
+            textLabel.setBounds(windowWidth /2 - buttonWidth /2, windowHeight - 250, buttonWidth, buttonHeight - 10);
+            textLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 14));
+
+            nameField.setBounds(windowWidth/2 - buttonWidth/2,windowHeight - 170, buttonWidth, buttonHeight - 10);
+            nameField.addKeyListener(this);
+            nameField.addMouseListener(this);
+            nameField.setText("Name...");
+            nameField.setForeground(Color.lightGray);
+        }
+
 
         changePass.setFocusPainted(false); // Removes focus lines
         changePass.setBorderPainted(false);    //Removes border
@@ -71,6 +99,8 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
         this.add(confirmpassField);
         this.add(passwordField);
         this.add(newpassField);
+        this.add(nameField);
+        this.add(textLabel);
     }
 
 
@@ -78,19 +108,30 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
     public void actionPerformed(ActionEvent e) {
 
         if(e.getSource() == changePass){
-            boolean passwordsMatch = RegisterBE.checkPassword(newpassField.getPassword(), confirmpassField.getPassword());
-            String oldpass = String.valueOf(passwordField.getPassword());
-            String newpass = String.valueOf(newpassField.getPassword());
-            if( passwordsMatch ){
-                if(d.changePassword(currentUser.getID(),oldpass,newpass)){
-                    System.out.println("change pass accepted");
+
+            if(info.equals("pass")){
+                boolean passwordsMatch = RegisterBE.checkPassword(newpassField.getPassword(), confirmpassField.getPassword());
+                String oldpass = String.valueOf(passwordField.getPassword());
+                String newpass = String.valueOf(newpassField.getPassword());
+                if( passwordsMatch ){
+                    if(d.changePassword(currentUser.getID(),oldpass,newpass)){
+                        System.out.println("change pass accepted");
+                        DefinitionsUI definitions = new DefinitionsUI(currentUser);
+                        this.dispose();
+                    }else{
+                        System.out.println("your pass is wrong");
+                        //Label to say " Your password is wrong"
+                    }
                 }else{
-                    System.out.println("your pass is wrong");
+                    System.out.println("dont match");
+                    //Label to say " Your passwords dont match "
                 }
-            }else{
-                System.out.println("dont match");
-                //Label to say " Your passwords dont match "
+            }else if(info.equals("name") && d.changeName(nameField.getText(),currentUser.getID())){
+                currentUser.setName(nameField.getText());
+                DefinitionsUI definitions = new DefinitionsUI(currentUser);
+                this.dispose();
             }
+
         }
 
     }
@@ -117,6 +158,12 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
                     confirmpassField.setEchoChar((char)8226);
                     confirmpassField.setForeground(Color.black);
             }
+        }else if(e.getSource() == nameField){
+            if(nameField.getText().equals("Name...")){
+                nameField.setText("");
+                nameField.setForeground(Color.black);
+
+            }
         }
 
     }
@@ -142,6 +189,12 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
                 confirmpassField.setText("");
                 confirmpassField.setEchoChar((char)8226);
                 confirmpassField.setForeground(Color.black);
+            }
+        }else if(e.getSource() == nameField){
+            if(nameField.getText().equals("Name...")){
+                nameField.setText("");
+                nameField.setForeground(Color.black);
+
             }
         }
 
@@ -178,6 +231,12 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
                 confirmpassField.setText("");
                 confirmpassField.setEchoChar((char)8226);
                 confirmpassField.setForeground(Color.black);
+            }
+        }else if(e.getSource() == nameField){
+            if(nameField.getText().equals("Name...")){
+                nameField.setText("");
+                nameField.setForeground(Color.black);
+
             }
         }
 

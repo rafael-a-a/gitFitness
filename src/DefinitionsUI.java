@@ -9,7 +9,7 @@ public class DefinitionsUI extends JFrame implements ActionListener {
 
     JButton goBackButton;
     JButton changePass;
-    JButton changeMail;
+    JButton changeName;
     JButton changeData;
     JButton deleteAccount;
     JLabel textLabel;
@@ -19,6 +19,7 @@ public class DefinitionsUI extends JFrame implements ActionListener {
     JPanel goBackPanel;
     JPanel buttonsPanel;
     private final User currentUser;
+    private  String info;
 
 
 
@@ -44,7 +45,7 @@ public class DefinitionsUI extends JFrame implements ActionListener {
         goBackButton.setLayout(new BorderLayout());
 
         changePass = new JButton();
-        changePass.setText("Change password");
+        changePass.setText("Change your password");
         changePass.setFocusPainted(false);
         changePass.setBorderPainted(false);
         changePass.setContentAreaFilled(true);
@@ -53,10 +54,10 @@ public class DefinitionsUI extends JFrame implements ActionListener {
         changePass.setBounds(240, 0, 400, 100);
         changePass.addActionListener(this);
 
-        changeMail = new JButton();
-        changeMail.setBounds(240, 100, 400, 100);
-        changeMail.setText("Change E-mail");
-        changeMail.addActionListener(this);
+        changeName = new JButton();
+        changeName.setBounds(240, 100, 400, 100);
+        changeName.setText("Change your name");
+        changeName.addActionListener(this);
 
         changeData = new JButton();
         changeData.setBounds(240, 200, 400, 100);
@@ -82,7 +83,7 @@ public class DefinitionsUI extends JFrame implements ActionListener {
         buttonsLabel.setHorizontalAlignment(JLabel.CENTER);
         buttonsLabel.setBackground(new Color(255, 229, 62));
         buttonsLabel.add(changePass);
-        buttonsLabel.add(changeMail);
+        buttonsLabel.add(changeName);
         buttonsLabel.add(changeData);
         buttonsLabel.add(deleteAccount);
 
@@ -131,16 +132,22 @@ public class DefinitionsUI extends JFrame implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e){
+
         if(e.getSource() == goBackButton){
             this.dispose();
             MainMenuUI myMenuUI = new MainMenuUI(currentUser);
             System.out.println("workout");
         }else if(e.getSource() == changePass){
-            changePassUI cp = new changePassUI(currentUser);
+            info = "pass";
+            changePassUI cp = new changePassUI(currentUser, info);
             System.out.println("change pass");
-        }else if(e.getSource() == changeMail){
-            System.out.println("change mail");
+            this.dispose();
+        }else if(e.getSource() == changeName){
+            info = "name";
+            changePassUI cp = new changePassUI(currentUser, info);
+            System.out.println("your name is"+currentUser.getName());
+            this.dispose();
         }else if (e.getSource() == changeData){
             System.out.println("change data");
         }else if(e.getSource() == deleteAccount){

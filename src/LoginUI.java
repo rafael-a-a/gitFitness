@@ -43,7 +43,7 @@ public class LoginUI extends JFrame implements ActionListener{
         passwordLabel = new JLabel();
         loginStatus = new JLabel();
         usernameField = new JTextField();
-        passwordField = new JPasswordField();    //hides password when writing
+        passwordField = new JPasswordField();
         createAccountLabel = new JLabel();
         logoLabel = new JLabel();
 
