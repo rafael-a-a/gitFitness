@@ -16,7 +16,7 @@ public class MainMenuUI extends JFrame implements ActionListener{
     JPanel imagPanel;
     JPanel buttonsPanel;
     JPanel settingsPanel;
-    private User currentUser;
+    private final User currentUser;
 
     MainMenuUI(User u){
 

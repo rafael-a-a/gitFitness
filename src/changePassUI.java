@@ -4,13 +4,16 @@ import java.awt.event.*;
 
 public class changePassUI extends JFrame implements ActionListener, MouseListener, KeyListener {
 
+    Database d = new Database();
     JPasswordField passwordField = new JPasswordField();
     JPasswordField newpassField = new JPasswordField();
     JPasswordField confirmpassField = new JPasswordField();
     JButton changePass = new JButton();
+    private final User currentUser;
 
-    changePassUI(){
+    changePassUI(User u){
 
+        currentUser = u;
         ImageIcon changeIcon = new ImageIcon("src/icons/createAccountButton.png");
         ImageIcon changePressed = new ImageIcon("src/icons/createAccountButtonClick.png");
 
@@ -75,18 +78,72 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
     public void actionPerformed(ActionEvent e) {
 
         if(e.getSource() == changePass){
-            boolean passwordsMatch = RegisterBE.checkPassword(passwordField.getPassword(), confirmpassField.getPassword());
+            boolean passwordsMatch = RegisterBE.checkPassword(newpassField.getPassword(), confirmpassField.getPassword());
+            String oldpass = String.valueOf(passwordField.getPassword());
+            String newpass = String.valueOf(newpassField.getPassword());
+            if( passwordsMatch ){
+                if(d.changePassword(currentUser.getID(),oldpass,newpass)){
+                    System.out.println("change pass accepted");
+                }else{
+                    System.out.println("your pass is wrong");
+                }
+            }else{
+                System.out.println("dont match");
+                //Label to say " Your passwords dont match "
+            }
         }
 
     }
 
     @Override
     public void keyTyped(KeyEvent e) {
+        if(e.getSource() == passwordField) {
+            if (String.valueOf(passwordField.getPassword()).equals("Old password...")) {
+                passwordField.setText("");
+                passwordField.setEchoChar((char) 8226);
+                passwordField.setForeground(Color.black);
+            }
+        }
+        else if(e.getSource() == newpassField){
+                if(String.valueOf(newpassField.getPassword()).equals("New password...")){
+                    newpassField.setText("");
+                    newpassField.setEchoChar((char)8226);
+                    newpassField.setForeground(Color.black);
+                }
+            }
+        else if(e.getSource() == confirmpassField){
+            if(String.valueOf(confirmpassField.getPassword()).equals("Confirm your password...")){
+                    confirmpassField.setText("");
+                    confirmpassField.setEchoChar((char)8226);
+                    confirmpassField.setForeground(Color.black);
+            }
+        }
 
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
+        if(e.getSource() == passwordField) {
+            if (String.valueOf(passwordField.getPassword()).equals("Old password...")) {
+                passwordField.setText("");
+                passwordField.setEchoChar((char) 8226);
+                passwordField.setForeground(Color.black);
+            }
+        }
+        else if(e.getSource() == newpassField){
+            if(String.valueOf(newpassField.getPassword()).equals("New password...")){
+                newpassField.setText("");
+                newpassField.setEchoChar((char)8226);
+                newpassField.setForeground(Color.black);
+            }
+        }
+        else if(e.getSource() == confirmpassField){
+            if(String.valueOf(confirmpassField.getPassword()).equals("Confirm your password...")){
+                confirmpassField.setText("");
+                confirmpassField.setEchoChar((char)8226);
+                confirmpassField.setForeground(Color.black);
+            }
+        }
 
     }
 
@@ -102,6 +159,27 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
 
     @Override
     public void mousePressed(MouseEvent e) {
+        if(e.getSource() == passwordField) {
+            if (String.valueOf(passwordField.getPassword()).equals("Old password...")) {
+                passwordField.setText("");
+                passwordField.setEchoChar((char) 8226);
+                passwordField.setForeground(Color.black);
+            }
+        }
+        else if(e.getSource() == newpassField){
+            if(String.valueOf(newpassField.getPassword()).equals("New password...")){
+                newpassField.setText("");
+                newpassField.setEchoChar((char)8226);
+                newpassField.setForeground(Color.black);
+            }
+        }
+        else if(e.getSource() == confirmpassField){
+            if(String.valueOf(confirmpassField.getPassword()).equals("Confirm your password...")){
+                confirmpassField.setText("");
+                confirmpassField.setEchoChar((char)8226);
+                confirmpassField.setForeground(Color.black);
+            }
+        }
 
     }
 

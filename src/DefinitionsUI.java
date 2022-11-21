@@ -18,7 +18,7 @@ public class DefinitionsUI extends JFrame implements ActionListener {
     JPanel topPanel;
     JPanel goBackPanel;
     JPanel buttonsPanel;
-    private User currentUser;
+    private final User currentUser;
 
 
 
@@ -137,6 +137,7 @@ public class DefinitionsUI extends JFrame implements ActionListener {
             MainMenuUI myMenuUI = new MainMenuUI(currentUser);
             System.out.println("workout");
         }else if(e.getSource() == changePass){
+            changePassUI cp = new changePassUI(currentUser);
             System.out.println("change pass");
         }else if(e.getSource() == changeMail){
             System.out.println("change mail");

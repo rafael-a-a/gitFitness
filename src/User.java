@@ -34,6 +34,9 @@ public class User {
         String passwordH = Integer.toString(hashed);
         return passwordH;
     }
+    public String getID(){
+        return id;
+    }
 
     public String getPhone() {
         return phone;
