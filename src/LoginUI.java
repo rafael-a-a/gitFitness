@@ -15,6 +15,7 @@ public class LoginUI extends JFrame implements ActionListener{
     JPasswordField passwordField;
     JLabel logoLabel;
 
+
     private boolean authentication = false;
     private boolean register = false;
 
@@ -155,7 +156,7 @@ public class LoginUI extends JFrame implements ActionListener{
 
             if(d.checkLogin(uID,password, phonen)) { //if login is verified, then opens main menu
                 loginButton.setEnabled(false);
-                User u = new User(uID,password);
+                User u = d.getUserData(uID);
                 MainMenuUI myMenuUI = new MainMenuUI(u);
                 this.dispose();
 
