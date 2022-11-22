@@ -5,7 +5,6 @@ public class Main {
         LoginUI myLogin = new LoginUI();//to start the program
 
 
-
     }
 }
 //criar mainmenu com parametro user dado pelo login

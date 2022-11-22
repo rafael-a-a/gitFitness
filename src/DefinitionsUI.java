@@ -26,66 +26,75 @@ public class DefinitionsUI extends JFrame implements ActionListener {
     DefinitionsUI(User u){
 
         currentUser = u;
-        ImageIcon backImage = new ImageIcon("src/icons/Button.png");
-        ImageIcon backPressed = new ImageIcon("src/icons/ButtonClick.png");
+        ImageIcon backImage = new ImageIcon("src/icons/Back.png");
+        ImageIcon backPressed = new ImageIcon("src/icons/BackClick.png");
         ImageIcon image = new ImageIcon("src/icons/logo4.png"); //create an ImageIcon
+        ImageIcon button = new ImageIcon("src/icons/Treino");
+        ImageIcon buttonPressed = new ImageIcon("src/icons/TreinoClick.png");
 
 //-------------------------------Buttons--------------------------------------------
         goBackButton = new JButton();
         goBackButton.setFocusPainted(false); // Removes focus lines
         goBackButton.setBorderPainted(false);    //Removes border
-        goBackButton.setContentAreaFilled(true);    //Removes background
-        goBackButton.setBackground(new Color(62, 255, 147));
+        goBackButton.setContentAreaFilled(false);    //Removes background
         goBackButton.setPreferredSize(new Dimension(50, 30));
-        //goBackButton.setPressedIcon(backPressed);   //Changes icon (when pressed)
-        //goBackButton.setIcon(backImage);
-        //goBackButton.setBounds(1, 130, 250, 100);
+        goBackButton.setPressedIcon(backPressed);   //Changes icon (when pressed)
+        goBackButton.setIcon(backImage);
         goBackButton.addActionListener(this);
         goBackButton.setFocusable(false);
         goBackButton.setLayout(new BorderLayout());
 
         changePass = new JButton();
-        changePass.setText("Change your password");
-        changePass.setFocusPainted(false);
+        changePass.setText("Mudar palavra passe");
+       /* changePass.setFocusPainted(false);
         changePass.setBorderPainted(false);
-        changePass.setContentAreaFilled(true);
-        changePass.setBackground(new Color(62, 255, 147));
-        changePass.setPreferredSize(new Dimension(400, 50));
-        changePass.setBounds(240, 0, 400, 100);
+        changePass.setContentAreaFilled(false);
+        changePass.setPressedIcon(buttonPressed);
+        changePass.setIcon(button);*/
+        changePass.setIconTextGap(-15);
+        changePass.setPreferredSize(new Dimension(400, 100));
         changePass.addActionListener(this);
 
         changeName = new JButton();
-        changeName.setBounds(240, 100, 400, 100);
-        changeName.setText("Change your name");
+        changeName.setPreferredSize(new Dimension(400, 100));//setBounds(240, 110, 400, 100);
+        changeName.setText("Alterar nome");
         changeName.addActionListener(this);
 
         changeData = new JButton();
-        changeData.setBounds(240, 200, 400, 100);
-        changeData.setText("Change your data");
+        changeData.setPreferredSize(new Dimension(400, 100));//setBounds(240, 210, 400, 100);
+        changeData.setText("Alterar os dados pessoais");
         changeData.addActionListener(this);
 
         deleteAccount  = new JButton();
-        deleteAccount.setBounds(240, 300, 400, 100);
-        deleteAccount.setText("Delete your account");
+        deleteAccount.setPreferredSize(new Dimension(400, 100));//setBounds(240, 310, 400, 100);
+        deleteAccount.setText("Apagar conta");
         deleteAccount.addActionListener(this);
 
 //-------------------------------Labels--------------------------------------------
         textLabel = new JLabel();
         // esta janela devia se chamar settings
-        textLabel.setText("SETTINGS");
+        textLabel.setText("DEFINIÇÔES");
         textLabel.setVerticalAlignment(JLabel.TOP);
         textLabel.setHorizontalAlignment(JLabel.CENTER);
         textLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 40));
 
 
         buttonsLabel = new JLabel();
-        buttonsLabel.setVerticalAlignment(JLabel.CENTER);
-        buttonsLabel.setHorizontalAlignment(JLabel.CENTER);
-        buttonsLabel.setBackground(new Color(255, 229, 62));
-        buttonsLabel.add(changePass);
-        buttonsLabel.add(changeName);
-        buttonsLabel.add(changeData);
-        buttonsLabel.add(deleteAccount);
+        buttonsLabel.setPreferredSize(new Dimension(100,100));
+        buttonsLabel.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+
+
+        c.gridx = 0;
+        c.anchor = GridBagConstraints.CENTER;
+        c.insets = new Insets(10, 10,0,0);
+        //c.fill = GridBagConstraints.VERTICAL;
+        buttonsLabel.add(changePass,c);
+        buttonsLabel.add(changeName,c);
+        buttonsLabel.add(changeData,c);
+        buttonsLabel.add(deleteAccount,c);
+
+
 
 
 //-------------------------------Panels--------------------------------------------
@@ -107,8 +116,9 @@ public class DefinitionsUI extends JFrame implements ActionListener {
         textPanel.add(textLabel, BorderLayout.NORTH);
 
         buttonsPanel = new JPanel();
+
         buttonsPanel.setBackground(new Color(255, 255, 200));
-        buttonsPanel.setPreferredSize(new Dimension(400, 600));
+        buttonsPanel.setPreferredSize(new Dimension(100, 100));
         buttonsPanel.setLayout(new BorderLayout());
         buttonsPanel.add(buttonsLabel, BorderLayout.CENTER);
 
@@ -123,7 +133,6 @@ public class DefinitionsUI extends JFrame implements ActionListener {
         this.setLayout(new BorderLayout());
         this.setVisible(true); //make frame visible
         this.setIconImage(image.getImage());    //change icon of frame
-        //this.getContentPane().setBackground(new Color(255, 255, 200));       //change background color
         this.setLocationRelativeTo(null);
 
         this.add(topPanel, BorderLayout.NORTH);
