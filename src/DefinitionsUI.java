@@ -45,7 +45,7 @@ public class DefinitionsUI extends JFrame implements ActionListener {
         goBackButton.setLayout(new BorderLayout());
 
         changePass = new JButton();
-        changePass.setText("Mudar palavra passe");
+        changePass.setText("Change password");
        /* changePass.setFocusPainted(false);
         changePass.setBorderPainted(false);
         changePass.setContentAreaFilled(false);
@@ -58,26 +58,26 @@ public class DefinitionsUI extends JFrame implements ActionListener {
 
         changeName = new JButton();
         changeName.setPreferredSize(new Dimension(400, 100));//setBounds(240, 110, 400, 100);
-        changeName.setText("Alterar nome");
+        changeName.setText("Change name");
         changeName.addActionListener(this);
         changeName.setFocusable(false);
 
         changeData = new JButton();
         changeData.setPreferredSize(new Dimension(400, 100));//setBounds(240, 210, 400, 100);
-        changeData.setText("Alterar os dados pessoais");
+        changeData.setText("Change data");
         changeData.addActionListener(this);
         changeData.setFocusable(false);
 
         deleteAccount  = new JButton();
         deleteAccount.setPreferredSize(new Dimension(400, 100));//setBounds(240, 310, 400, 100);
-        deleteAccount.setText("Apagar conta");
+        deleteAccount.setText("Delete account");
         deleteAccount.addActionListener(this);
         deleteAccount.setFocusable(false);
 
 //-------------------------------Labels--------------------------------------------
         textLabel = new JLabel();
         // esta janela devia se chamar settings
-        textLabel.setText("DEFINIÇÔES");
+        textLabel.setText("SETTINGS");
         textLabel.setVerticalAlignment(JLabel.TOP);
         textLabel.setHorizontalAlignment(JLabel.CENTER);
         textLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 40));

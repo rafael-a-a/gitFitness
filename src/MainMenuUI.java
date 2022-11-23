@@ -68,7 +68,7 @@ public class MainMenuUI extends JFrame implements ActionListener{
         //-----Button configuration-----
         workout.setBounds(20, 20, 250, 100);
         workout.addActionListener(this);
-        workout.setText("TREINO");  //set text of button
+        workout.setText("WORKOUT");  //set text of button
         workout.setFocusable(false);
         workout.setVerticalTextPosition(JButton.CENTER);
         workout.setHorizontalTextPosition(JButton.CENTER);
@@ -87,7 +87,7 @@ public class MainMenuUI extends JFrame implements ActionListener{
 
         objectives.setBounds(20, 130, 250, 100);
         objectives.addActionListener(this);
-        objectives.setText("OBJETIVOS");  //set text of button
+        objectives.setText("OBJECTIVES");  //set text of button
         objectives.setFocusable(false);
         objectives.setVerticalTextPosition(JButton.CENTER);
         objectives.setHorizontalTextPosition(JButton.CENTER);
@@ -106,7 +106,7 @@ public class MainMenuUI extends JFrame implements ActionListener{
 
         progress.setBounds(20, 240, 250, 100);
         progress.addActionListener(this);
-        progress.setText("PROGRESSO");  //set text of button
+        progress.setText("PROGRESS");  //set text of button
         progress.setFocusable(false);
         progress.setVerticalTextPosition(JButton.CENTER);
         progress.setHorizontalTextPosition(JButton.CENTER);
@@ -125,7 +125,7 @@ public class MainMenuUI extends JFrame implements ActionListener{
 
         settings.setBounds(20, 500, 250, 100);
         settings.addActionListener(this);
-        settings.setText("DEFINIÇÕES");  //set text of button
+        settings.setText("SETTINGS");  //set text of button
         settings.setFocusable(false);
         settings.setVerticalTextPosition(JButton.CENTER);
         settings.setHorizontalTextPosition(JButton.CENTER);
