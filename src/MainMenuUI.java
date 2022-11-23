@@ -168,6 +168,8 @@ public class MainMenuUI extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==workout){
             System.out.println("workout");
+            this.dispose();
+            WorkoutUI myWorkout = new WorkoutUI(currentUser);
         } else if (e.getSource()==objectives) {
             System.out.println("objectives");
         } else if (e.getSource()==progress) {
