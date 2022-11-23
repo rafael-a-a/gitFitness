@@ -88,7 +88,7 @@ public class Exercise {
                 rs = stmt.executeQuery("SELECT * from loseit.exercise where id= '" + i + "';");
                 while(rs.next()) {
                     System.out.println("i = " + i);
-                    retArray[i-3] = new Exercise();
+                    retArray[i - 3] = new Exercise();
                     retArray[i - 3].name = rs.getString("name");
                     retArray[i - 3].difficulty = rs.getString("difficulty");
                     retArray[i - 3].description = rs.getString("description");
