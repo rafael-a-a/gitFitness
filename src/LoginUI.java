@@ -141,8 +141,6 @@ public class LoginUI extends JFrame implements ActionListener{
 
 
 
-
-
     @Override //button functionality
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == loginButton ){
