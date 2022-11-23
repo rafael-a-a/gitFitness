@@ -30,7 +30,7 @@
               <horizontalTextPosition value="0"/>
               <iconTextGap value="4"/>
               <opaque value="false"/>
-              <text value="Treino"/>
+              <text value="WORKOUT"/>
             </properties>
           </component>
           <grid id="f666f" layout-manager="BorderLayout" hgap="0" vgap="0">
@@ -41,7 +41,7 @@
             </properties>
             <border type="none"/>
             <children>
-              <component id="9ec4b" class="javax.swing.JButton" binding="button1" default-binding="true">
+              <component id="9ec4b" class="javax.swing.JButton" binding="backButton">
                 <constraints border-constraint="North"/>
                 <properties>
                   <background color="-9119491"/>
@@ -104,51 +104,104 @@
           <title-color color="-4473925"/>
         </border>
         <children>
-          <component id="4abd0" class="javax.swing.JButton" binding="difícilButton">
+          <component id="4abd0" class="javax.swing.JButton" binding="dificilButton">
             <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-              <gridbag top="0" left="50" bottom="0" right="0" weightx="0.0" weighty="0.0" ipadx="250" ipady="400"/>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="0" left="50" bottom="0" right="0" weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
               <actionCommand value="Difícil"/>
               <autoscrolls value="false"/>
               <background color="-13858049"/>
-              <doubleBuffered value="true"/>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
+              <defaultCapable value="false"/>
+              <doubleBuffered value="false"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <font size="30" style="3"/>
+              <foreground color="-1381654"/>
               <hideActionText value="false"/>
               <horizontalAlignment value="0"/>
-              <horizontalTextPosition value="11"/>
+              <horizontalTextPosition value="0"/>
+              <icon value="icons/Hard.png"/>
               <margin top="0" left="0" bottom="0" right="0"/>
-              <text value="Difícil"/>
+              <preferredSize width="250" height="400"/>
+              <pressedIcon value="icons/HardClick.png"/>
+              <requestFocusEnabled value="false"/>
+              <text value="EXPERT"/>
               <toolTipText value="Easy to start&#10;"/>
+              <verifyInputWhenFocusTarget value="false"/>
               <verticalAlignment value="0"/>
+              <visible value="true"/>
             </properties>
           </component>
-          <component id="aaa3e" class="javax.swing.JButton" binding="médioButton">
+          <component id="aaa3e" class="javax.swing.JButton" binding="medioButton">
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0" ipadx="250" ipady="400"/>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
+              <actionCommand value="Médio"/>
+              <alignmentY value="0.0"/>
               <background color="-13858049"/>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
+              <defaultCapable value="false"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <font size="30" style="3"/>
+              <foreground color="-1381654"/>
               <hideActionText value="false"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <icon value="icons/Medium.png"/>
+              <iconTextGap value="-220"/>
+              <label value="INTERMEDIUM"/>
               <margin top="0" left="0" bottom="0" right="0"/>
-              <text value="Médio"/>
+              <name value=""/>
+              <preferredSize width="250" height="400"/>
+              <pressedIcon value="icons/MediumClick.png"/>
+              <selected value="false"/>
+              <text value="INTERMEDIUM"/>
               <toolTipText value="Easy to start&#10;"/>
-              <verticalAlignment value="0"/>
+              <verticalAlignment value="3"/>
+              <verticalTextPosition value="3"/>
+              <visible value="true"/>
             </properties>
           </component>
-          <component id="7dfca" class="javax.swing.JButton" binding="fácilButton">
+          <component id="7dfca" class="javax.swing.JButton" binding="facilButton">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-              <gridbag top="0" left="0" bottom="0" right="50" weightx="0.0" weighty="0.0" ipadx="250" ipady="400"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="0" left="0" bottom="0" right="50" weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
+              <actionCommand value="Fácil"/>
+              <alignmentY value="0.0"/>
               <background color="-13858049"/>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
+              <defaultCapable value="false"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <font size="30" style="3"/>
+              <foreground color="-1381654"/>
               <hideActionText value="false"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <icon value="icons/Easy.png"/>
+              <iconTextGap value="-150"/>
+              <inheritsPopupMenu value="false"/>
               <margin top="0" left="0" bottom="0" right="0"/>
-              <text value="Fácil"/>
+              <name value=""/>
+              <opaque value="false"/>
+              <preferredSize width="250" height="400"/>
+              <pressedIcon value="icons/EasyClick.png"/>
+              <selected value="false"/>
+              <text value="BEGINNER"/>
               <toolTipText value="Easy to start&#10;"/>
               <verticalAlignment value="0"/>
+              <verticalTextPosition value="0"/>
             </properties>
           </component>
         </children>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="TargetMuscleUI">
+  <grid id="27dc6" binding="targetPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="548" height="551"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="215e2" binding="panel1" layout-manager="GridBagLayout">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <background color="-9119492"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="9adb3" class="javax.swing.JCheckBox" binding="checkBox1" default-binding="true">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
+            </constraints>
+            <properties>
+              <contentAreaFilled value="true"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <text value="CheckBox"/>
+            </properties>
+          </component>
+          <component id="be8df" class="javax.swing.JCheckBox" binding="checkBox2" default-binding="true">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
+            </constraints>
+            <properties>
+              <contentAreaFilled value="true"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <text value="CheckBox"/>
+            </properties>
+          </component>
+          <component id="a504f" class="javax.swing.JCheckBox" binding="checkBox7" default-binding="true">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
+            </constraints>
+            <properties>
+              <contentAreaFilled value="true"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <text value="CheckBox"/>
+            </properties>
+          </component>
+          <component id="499a7" class="javax.swing.JCheckBox" binding="checkBox8" default-binding="true">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
+            </constraints>
+            <properties>
+              <contentAreaFilled value="true"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <text value="CheckBox"/>
+            </properties>
+          </component>
+          <component id="3ba65" class="javax.swing.JCheckBox" binding="checkBox3" default-binding="true">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
+            </constraints>
+            <properties>
+              <contentAreaFilled value="true"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <text value="CheckBox"/>
+            </properties>
+          </component>
+          <component id="280a5" class="javax.swing.JCheckBox" binding="checkBox9" default-binding="true">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
+            </constraints>
+            <properties>
+              <contentAreaFilled value="true"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <text value="CheckBox"/>
+            </properties>
+          </component>
+          <component id="d9af7" class="javax.swing.JCheckBox" binding="checkBox5" default-binding="true">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
+            </constraints>
+            <properties>
+              <contentAreaFilled value="true"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <text value="CheckBox"/>
+            </properties>
+          </component>
+          <component id="4c48d" class="javax.swing.JCheckBox" binding="checkBox6" default-binding="true">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
+            </constraints>
+            <properties>
+              <contentAreaFilled value="true"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <text value="CheckBox"/>
+            </properties>
+          </component>
+          <component id="723d1" class="javax.swing.JCheckBox" binding="checkBox10" default-binding="true">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
+            </constraints>
+            <properties>
+              <contentAreaFilled value="true"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <text value="CheckBox"/>
+            </properties>
+          </component>
+          <component id="2b9e" class="javax.swing.JCheckBox" binding="checkBox4" default-binding="true">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
+            </constraints>
+            <properties>
+              <contentAreaFilled value="true"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <text value="CheckBox"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="4feb7" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="South"/>
+        <properties>
+          <preferredSize width="0" height="50"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="a10de" class="javax.swing.JButton" binding="button1" default-binding="true">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <text value="Button"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
