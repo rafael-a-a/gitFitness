@@ -6,6 +6,7 @@ public class User {
     public WorkoutItem[] woItem;
     public Workout[] Wo;
 
+    User(){}
     //User constructor for Create Account
     User(String name, String email, String password, String phone){
         this.name = name;
@@ -18,7 +19,6 @@ public class User {
         this.password = password;
     }
 
-    User(){}
     public String getName() {
         return name;
     }
