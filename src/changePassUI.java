@@ -9,7 +9,9 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
     JPasswordField newpassField = new JPasswordField();
     JPasswordField confirmpassField = new JPasswordField();
     JButton changePass = new JButton();
+    JButton goBackButton = new JButton();
     JTextField nameField = new JTextField();
+    JLabel changeStatus = new JLabel();
     JLabel textLabel = new JLabel();
     private final User currentUser;
     private String info;
@@ -21,6 +23,8 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
 
         ImageIcon changeIcon = new ImageIcon("src/icons/createAccountButton.png");
         ImageIcon changePressed = new ImageIcon("src/icons/createAccountButtonClick.png");
+        ImageIcon backImage = new ImageIcon("src/icons/Back.png");
+        ImageIcon backPressed = new ImageIcon("src/icons/BackClick.png");
 
         int windowHeight = 300;
         int windowWidth = 300;
@@ -59,7 +63,7 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
         }else if(info.equals("name")){
             textLabel = new JLabel();
             // esta janela devia se chamar settings
-            textLabel.setText("Change your name");
+            textLabel.setText("   Change your name");
             textLabel.setBounds(windowWidth /2 - buttonWidth /2, windowHeight - 250, buttonWidth, buttonHeight - 10);
             textLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 14));
 
@@ -69,6 +73,20 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
             nameField.setText("Name...");
             nameField.setForeground(Color.lightGray);
         }
+
+        goBackButton.setVisible(true);
+        goBackButton.setFocusPainted(false); // Removes focus lines
+        goBackButton.setBorderPainted(false);    //Removes border
+        goBackButton.setContentAreaFilled(false);
+        goBackButton.setPressedIcon(backPressed);   //Changes icon (when pressed)
+        goBackButton.setIcon(backImage);
+        goBackButton.setVerticalTextPosition(JButton.CENTER);
+        goBackButton.setHorizontalTextPosition(JButton.CENTER);
+        goBackButton.setBounds(0,windowHeight - 290, 60 , buttonHeight);
+        goBackButton.addActionListener(this);
+        goBackButton.setFocusable(false);
+        goBackButton.setBackground(new Color(255, 255, 255, 255));
+        goBackButton.setBorder(BorderFactory.createEtchedBorder());
 
 
         changePass.setFocusPainted(false); // Removes focus lines
@@ -87,6 +105,10 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
         changePass.setBackground(new Color(255,255,255));
         changePass.setBorder(BorderFactory.createEtchedBorder());
 
+        changeStatus.setBounds(windowWidth/2 - buttonWidth/2 - 30,windowHeight - 190, buttonWidth*3, buttonHeight - 10);
+        changeStatus.setFont(new Font("",Font.ITALIC,14));
+        changeStatus.setVisible(false);
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.setSize(windowWidth, windowHeight);
@@ -95,12 +117,14 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setVisible(true);
+        this.add(goBackButton);
         this.add(changePass);
         this.add(confirmpassField);
         this.add(passwordField);
         this.add(newpassField);
         this.add(nameField);
         this.add(textLabel);
+        this.add(changeStatus);
     }
 
 
@@ -116,8 +140,14 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
                 if( passwordsMatch ){
                     if(d.changePassword(currentUser.getID(),oldpass,newpass)){
                         System.out.println("change pass accepted");
-                        DefinitionsUI definitions = new DefinitionsUI(currentUser);
-                        this.dispose();
+                        changeStatus.setVisible(true);
+                        changeStatus.setForeground(Color.green);
+                        changeStatus.setText("Your password has been changed");
+                        changePass.setVisible(false);
+                        passwordField.setVisible(false);
+                        confirmpassField.setVisible(false);
+                        newpassField.setVisible(false);
+
                     }else{
                         System.out.println("your pass is wrong");
                         //Label to say " Your password is wrong"
@@ -128,10 +158,16 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
                 }
             }else if(info.equals("name") && d.changeName(nameField.getText(),currentUser.getID())){
                 currentUser.setName(nameField.getText());
-                DefinitionsUI definitions = new DefinitionsUI(currentUser);
-                this.dispose();
+                changeStatus.setVisible(true);
+                changeStatus.setForeground(Color.green);
+                changeStatus.setText("  Your name has been changed");
+                nameField.setVisible(false);
+
             }
 
+        }else if(e.getSource() == goBackButton){
+            DefinitionsUI definitions = new DefinitionsUI(currentUser);
+            this.dispose();
         }
 
     }
