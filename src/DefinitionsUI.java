@@ -52,6 +52,7 @@ public class DefinitionsUI extends JFrame implements ActionListener {
         changePass.setPressedIcon(buttonPressed);
         changePass.setIcon(button);*/
         changePass.setIconTextGap(-15);
+        changePass.setFocusable(false);
         changePass.setPreferredSize(new Dimension(400, 100));
         changePass.addActionListener(this);
 
@@ -59,16 +60,19 @@ public class DefinitionsUI extends JFrame implements ActionListener {
         changeName.setPreferredSize(new Dimension(400, 100));//setBounds(240, 110, 400, 100);
         changeName.setText("Alterar nome");
         changeName.addActionListener(this);
+        changeName.setFocusable(false);
 
         changeData = new JButton();
         changeData.setPreferredSize(new Dimension(400, 100));//setBounds(240, 210, 400, 100);
         changeData.setText("Alterar os dados pessoais");
         changeData.addActionListener(this);
+        changeData.setFocusable(false);
 
         deleteAccount  = new JButton();
         deleteAccount.setPreferredSize(new Dimension(400, 100));//setBounds(240, 310, 400, 100);
         deleteAccount.setText("Apagar conta");
         deleteAccount.addActionListener(this);
+        deleteAccount.setFocusable(false);
 
 //-------------------------------Labels--------------------------------------------
         textLabel = new JLabel();
@@ -160,7 +164,11 @@ public class DefinitionsUI extends JFrame implements ActionListener {
         }else if (e.getSource() == changeData){
             System.out.println("change data");
         }else if(e.getSource() == deleteAccount){
+            info = "delete";
+            changePassUI cp = new changePassUI(currentUser, info);
             System.out.println("delete account");
+            this.dispose();
+
         }
     }
 }

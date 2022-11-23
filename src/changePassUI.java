@@ -13,6 +13,7 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
     JTextField nameField = new JTextField();
     JLabel changeStatus = new JLabel();
     JLabel textLabel = new JLabel();
+
     private final User currentUser;
     private String info;
 
@@ -32,18 +33,22 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
         int buttonWidth = 160;
 
 
-        if(info.equals("pass")){
+        if(info.equals("pass") || info.equals("delete")){
             textLabel = new JLabel();
-            // esta janela devia se chamar settings
-            textLabel.setText("Change your password");
-            textLabel.setBounds(windowWidth /2 - buttonWidth /2, windowHeight - 250, buttonWidth, buttonHeight - 10);
+
+            if(info.equals("delete")){
+                textLabel.setText("  Delete your account");
+            }else{
+                textLabel.setText(" Change your password");
+            }
+            textLabel.setBounds(windowWidth /2 - buttonWidth /2, windowHeight - 250, buttonWidth + 10, buttonHeight - 10);
             textLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 14));
 
             passwordField.setBounds(windowWidth /2 - buttonWidth /2, windowHeight - 200, buttonWidth, buttonHeight - 10);
             passwordField.addKeyListener(this);
             passwordField.addMouseListener(this);
             passwordField.setEchoChar((char)0);
-            passwordField.setText("Old password...");
+            passwordField.setText("Password...");
             passwordField.setForeground(Color.lightGray);
 
             newpassField.setBounds(windowWidth /2 - buttonWidth /2, windowHeight - 170, buttonWidth, buttonHeight - 10);
@@ -57,7 +62,7 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
             confirmpassField.addMouseListener(this);
             confirmpassField.addKeyListener(this);
             confirmpassField.setEchoChar((char)0);
-            confirmpassField.setText("Confirm your password...");
+            confirmpassField.setText("Confirm your new password...");
             confirmpassField.setForeground(Color.lightGray);
 
         }else if(info.equals("name")){
@@ -99,7 +104,7 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
         changePass.setHorizontalTextPosition(JButton.CENTER);
         changePass.setBounds(windowWidth/2 - buttonWidth/2,windowHeight - 80, buttonWidth, buttonHeight);
         changePass.addActionListener(this);  // enables button
-        changePass.setText("Change" );
+        changePass.setText("Change");
         changePass.setFocusable(false);
         changePass.setFont(new Font("myText", Font.BOLD|Font.ITALIC,14));
         changePass.setBackground(new Color(255,255,255));
@@ -108,6 +113,12 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
         changeStatus.setBounds(windowWidth/2 - buttonWidth/2 - 30,windowHeight - 190, buttonWidth*3, buttonHeight - 10);
         changeStatus.setFont(new Font("",Font.ITALIC,14));
         changeStatus.setVisible(false);
+
+        if(info.equals("delete")){
+            confirmpassField.setVisible(false);
+            newpassField.setVisible(false);
+            changePass.setText("Delete");
+        }
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
@@ -125,6 +136,8 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
         this.add(nameField);
         this.add(textLabel);
         this.add(changeStatus);
+
+
     }
 
 
@@ -133,12 +146,17 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
 
         if(e.getSource() == changePass){
 
-            if(info.equals("pass")){
+            String pass = String.valueOf(passwordField.getPassword());
+
+            if(info.equals("pass"))
+            {
                 boolean passwordsMatch = RegisterBE.checkPassword(newpassField.getPassword(), confirmpassField.getPassword());
                 String oldpass = String.valueOf(passwordField.getPassword());
                 String newpass = String.valueOf(newpassField.getPassword());
+
+
                 if( passwordsMatch ){
-                    if(d.changePassword(currentUser.getID(),oldpass,newpass)){
+                    if(d.checkLogin(currentUser.getEmail(),pass,currentUser.getPhone()) && d.changePassword(currentUser.getID(),oldpass,newpass)){
                         System.out.println("change pass accepted");
                         changeStatus.setVisible(true);
                         changeStatus.setForeground(Color.green);
@@ -156,12 +174,19 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
                     System.out.println("dont match");
                     //Label to say " Your passwords dont match "
                 }
+
             }else if(info.equals("name") && d.changeName(nameField.getText(),currentUser.getID())){
                 currentUser.setName(nameField.getText());
                 changeStatus.setVisible(true);
                 changeStatus.setForeground(Color.green);
                 changeStatus.setText("  Your name has been changed");
                 nameField.setVisible(false);
+
+            }else if(info.equals("delete") && d.checkLogin(currentUser.getEmail(), pass, currentUser.getPhone())){
+                d.delID(currentUser.getID());
+                System.out.println("account deleted:/");
+                LoginUI myLogin = new LoginUI();
+                this.dispose();
 
             }
 
@@ -175,7 +200,7 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
     @Override
     public void keyTyped(KeyEvent e) {
         if(e.getSource() == passwordField) {
-            if (String.valueOf(passwordField.getPassword()).equals("Old password...")) {
+            if (String.valueOf(passwordField.getPassword()).equals("Password...")) {
                 passwordField.setText("");
                 passwordField.setEchoChar((char) 8226);
                 passwordField.setForeground(Color.black);
@@ -189,7 +214,7 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
                 }
             }
         else if(e.getSource() == confirmpassField){
-            if(String.valueOf(confirmpassField.getPassword()).equals("Confirm your password...")){
+            if(String.valueOf(confirmpassField.getPassword()).equals("Confirm your new password...")){
                     confirmpassField.setText("");
                     confirmpassField.setEchoChar((char)8226);
                     confirmpassField.setForeground(Color.black);
@@ -207,7 +232,7 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
     @Override
     public void keyPressed(KeyEvent e) {
         if(e.getSource() == passwordField) {
-            if (String.valueOf(passwordField.getPassword()).equals("Old password...")) {
+            if (String.valueOf(passwordField.getPassword()).equals("Password...")) {
                 passwordField.setText("");
                 passwordField.setEchoChar((char) 8226);
                 passwordField.setForeground(Color.black);
@@ -221,7 +246,7 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
             }
         }
         else if(e.getSource() == confirmpassField){
-            if(String.valueOf(confirmpassField.getPassword()).equals("Confirm your password...")){
+            if(String.valueOf(confirmpassField.getPassword()).equals("Confirm your new password...")){
                 confirmpassField.setText("");
                 confirmpassField.setEchoChar((char)8226);
                 confirmpassField.setForeground(Color.black);
@@ -249,7 +274,7 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
     @Override
     public void mousePressed(MouseEvent e) {
         if(e.getSource() == passwordField) {
-            if (String.valueOf(passwordField.getPassword()).equals("Old password...")) {
+            if (String.valueOf(passwordField.getPassword()).equals("Password...")) {
                 passwordField.setText("");
                 passwordField.setEchoChar((char) 8226);
                 passwordField.setForeground(Color.black);
@@ -263,7 +288,7 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
             }
         }
         else if(e.getSource() == confirmpassField){
-            if(String.valueOf(confirmpassField.getPassword()).equals("Confirm your password...")){
+            if(String.valueOf(confirmpassField.getPassword()).equals("Confirm your new password...")){
                 confirmpassField.setText("");
                 confirmpassField.setEchoChar((char)8226);
                 confirmpassField.setForeground(Color.black);
