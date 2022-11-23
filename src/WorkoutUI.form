@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="WorkoutUI">
+  <grid id="27dc6" binding="workout" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="177" y="12" width="1578" height="914"/>
+    </constraints>
+    <properties>
+      <enabled value="true"/>
+    </properties>
+    <border type="empty" title-position="1"/>
+    <children>
+      <grid id="b62ad" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="North"/>
+        <properties>
+          <alignmentX value="0.0"/>
+          <background color="-9119491"/>
+          <enabled value="true"/>
+          <preferredSize width="93" height="100"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="238e4" class="javax.swing.JLabel" binding="treinoLabel">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <alignmentY value="0.0"/>
+              <enabled value="true"/>
+              <focusTraversalPolicyProvider value="false"/>
+              <font size="40" style="3"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <iconTextGap value="4"/>
+              <opaque value="false"/>
+              <text value="Treino"/>
+            </properties>
+          </component>
+          <grid id="f666f" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints border-constraint="West"/>
+            <properties>
+              <background color="-9119491"/>
+              <preferredSize width="80" height="30"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="9ec4b" class="javax.swing.JButton" binding="button1" default-binding="true">
+                <constraints border-constraint="North"/>
+                <properties>
+                  <background color="-9119491"/>
+                  <borderPainted value="false"/>
+                  <contentAreaFilled value="false"/>
+                  <defaultCapable value="false"/>
+                  <enabled value="true"/>
+                  <focusPainted value="false"/>
+                  <focusable value="false"/>
+                  <foreground color="-9119491"/>
+                  <hideActionText value="false"/>
+                  <horizontalAlignment value="0"/>
+                  <icon value="icons/Back.png"/>
+                  <maximumSize width="78" height="30"/>
+                  <preferredSize width="50" height="30"/>
+                  <pressedIcon value="icons/BackClick.png"/>
+                  <requestFocusEnabled value="false"/>
+                  <rolloverEnabled value="false"/>
+                  <text value=""/>
+                  <verifyInputWhenFocusTarget value="false"/>
+                  <visible value="true"/>
+                </properties>
+                <clientProperties>
+                  <hideActionText class="java.lang.Boolean" value="false"/>
+                </clientProperties>
+              </component>
+            </children>
+          </grid>
+          <grid id="f50bf" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints border-constraint="East"/>
+            <properties>
+              <background color="-9119491"/>
+              <preferredSize width="80" height="30"/>
+              <verifyInputWhenFocusTarget value="false"/>
+            </properties>
+            <border type="none"/>
+            <children/>
+          </grid>
+        </children>
+      </grid>
+      <grid id="19eff" layout-manager="GridBagLayout">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <autoscrolls value="true"/>
+          <background color="-9119491"/>
+          <doubleBuffered value="false"/>
+          <enabled value="false"/>
+          <focusCycleRoot value="false"/>
+          <focusTraversalPolicyProvider value="false"/>
+          <focusable value="false"/>
+          <foreground color="-9119491"/>
+          <opaque value="true"/>
+          <preferredSize width="100" height="430"/>
+          <requestFocusEnabled value="false"/>
+          <verifyInputWhenFocusTarget value="true"/>
+          <visible value="true"/>
+        </properties>
+        <border type="none">
+          <title-color color="-4473925"/>
+        </border>
+        <children>
+          <component id="4abd0" class="javax.swing.JButton" binding="difícilButton">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag top="0" left="50" bottom="0" right="0" weightx="0.0" weighty="0.0" ipadx="250" ipady="400"/>
+            </constraints>
+            <properties>
+              <actionCommand value="Difícil"/>
+              <autoscrolls value="false"/>
+              <background color="-13858049"/>
+              <doubleBuffered value="true"/>
+              <hideActionText value="false"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="11"/>
+              <margin top="0" left="0" bottom="0" right="0"/>
+              <text value="Difícil"/>
+              <toolTipText value="Easy to start&#10;"/>
+              <verticalAlignment value="0"/>
+            </properties>
+          </component>
+          <component id="aaa3e" class="javax.swing.JButton" binding="médioButton">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0" ipadx="250" ipady="400"/>
+            </constraints>
+            <properties>
+              <background color="-13858049"/>
+              <hideActionText value="false"/>
+              <margin top="0" left="0" bottom="0" right="0"/>
+              <text value="Médio"/>
+              <toolTipText value="Easy to start&#10;"/>
+              <verticalAlignment value="0"/>
+            </properties>
+          </component>
+          <component id="7dfca" class="javax.swing.JButton" binding="fácilButton">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag top="0" left="0" bottom="0" right="50" weightx="0.0" weighty="0.0" ipadx="250" ipady="400"/>
+            </constraints>
+            <properties>
+              <background color="-13858049"/>
+              <hideActionText value="false"/>
+              <margin top="0" left="0" bottom="0" right="0"/>
+              <text value="Fácil"/>
+              <toolTipText value="Easy to start&#10;"/>
+              <verticalAlignment value="0"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
