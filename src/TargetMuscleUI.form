@@ -14,7 +14,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="9adb3" class="javax.swing.JCheckBox" binding="checkBox1" default-binding="true">
+          <component id="9adb3" class="javax.swing.JCheckBox" binding="absCheck">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
@@ -23,10 +23,11 @@
               <contentAreaFilled value="true"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
-              <text value="CheckBox"/>
+              <preferredSize width="70" height="30"/>
+              <text value="Abs"/>
             </properties>
           </component>
-          <component id="be8df" class="javax.swing.JCheckBox" binding="checkBox2" default-binding="true">
+          <component id="be8df" class="javax.swing.JCheckBox" binding="backCheckBox" default-binding="true">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
@@ -35,10 +36,11 @@
               <contentAreaFilled value="true"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
-              <text value="CheckBox"/>
+              <preferredSize width="70" height="30"/>
+              <text value="Back"/>
             </properties>
           </component>
-          <component id="a504f" class="javax.swing.JCheckBox" binding="checkBox7" default-binding="true">
+          <component id="a504f" class="javax.swing.JCheckBox" binding="bicepsCheckBox" default-binding="true">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
@@ -47,10 +49,11 @@
               <contentAreaFilled value="true"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
-              <text value="CheckBox"/>
+              <preferredSize width="70" height="30"/>
+              <text value="Biceps"/>
             </properties>
           </component>
-          <component id="499a7" class="javax.swing.JCheckBox" binding="checkBox8" default-binding="true">
+          <component id="499a7" class="javax.swing.JCheckBox" binding="cardioCheckBox" default-binding="true">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
@@ -59,10 +62,11 @@
               <contentAreaFilled value="true"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
-              <text value="CheckBox"/>
+              <preferredSize width="70" height="30"/>
+              <text value="Cardio"/>
             </properties>
           </component>
-          <component id="3ba65" class="javax.swing.JCheckBox" binding="checkBox3" default-binding="true">
+          <component id="3ba65" class="javax.swing.JCheckBox" binding="chestCheckBox" default-binding="true">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
@@ -71,10 +75,11 @@
               <contentAreaFilled value="true"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
-              <text value="CheckBox"/>
+              <preferredSize width="70" height="30"/>
+              <text value="Chest"/>
             </properties>
           </component>
-          <component id="280a5" class="javax.swing.JCheckBox" binding="checkBox9" default-binding="true">
+          <component id="280a5" class="javax.swing.JCheckBox" binding="glutesCheckBox" default-binding="true">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
@@ -83,10 +88,11 @@
               <contentAreaFilled value="true"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
-              <text value="CheckBox"/>
+              <preferredSize width="70" height="30"/>
+              <text value="Glutes"/>
             </properties>
           </component>
-          <component id="d9af7" class="javax.swing.JCheckBox" binding="checkBox5" default-binding="true">
+          <component id="d9af7" class="javax.swing.JCheckBox" binding="lowerLegsCheckBox" default-binding="true">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
@@ -95,10 +101,11 @@
               <contentAreaFilled value="true"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
-              <text value="CheckBox"/>
+              <preferredSize width="70" height="30"/>
+              <text value="LowerLegs"/>
             </properties>
           </component>
-          <component id="4c48d" class="javax.swing.JCheckBox" binding="checkBox6" default-binding="true">
+          <component id="4c48d" class="javax.swing.JCheckBox" binding="shouldersCheckBox" default-binding="true">
             <constraints>
               <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
@@ -107,10 +114,11 @@
               <contentAreaFilled value="true"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
-              <text value="CheckBox"/>
+              <preferredSize width="70" height="30"/>
+              <text value="Shoulders"/>
             </properties>
           </component>
-          <component id="723d1" class="javax.swing.JCheckBox" binding="checkBox10" default-binding="true">
+          <component id="723d1" class="javax.swing.JCheckBox" binding="tricepsCheckBox" default-binding="true">
             <constraints>
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
@@ -119,10 +127,11 @@
               <contentAreaFilled value="true"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
-              <text value="CheckBox"/>
+              <preferredSize width="70" height="30"/>
+              <text value="Triceps"/>
             </properties>
           </component>
-          <component id="2b9e" class="javax.swing.JCheckBox" binding="checkBox4" default-binding="true">
+          <component id="2b9e" class="javax.swing.JCheckBox" binding="upperLegsCheckBox" default-binding="true">
             <constraints>
               <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag top="5" left="5" bottom="5" right="5" weightx="0.0" weighty="0.0" ipadx="50" ipady="10"/>
@@ -131,7 +140,8 @@
               <contentAreaFilled value="true"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
-              <text value="CheckBox"/>
+              <preferredSize width="70" height="30"/>
+              <text value="UpperLegs"/>
             </properties>
           </component>
         </children>
@@ -143,10 +153,10 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="a10de" class="javax.swing.JButton" binding="button1" default-binding="true">
+          <component id="a10de" class="javax.swing.JButton" binding="confirmButton" default-binding="true">
             <constraints border-constraint="Center"/>
             <properties>
-              <text value="Button"/>
+              <text value="Confirm"/>
             </properties>
           </component>
         </children>
