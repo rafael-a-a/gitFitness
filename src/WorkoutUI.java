@@ -5,10 +5,10 @@ import java.awt.event.ActionListener;
 public class WorkoutUI {
     private JPanel workout;
     private JLabel treinoLabel;
-    private JButton facilButton;
-    private JButton medioButton;
-    private JButton dificilButton;
     private JButton backButton;
+    private JButton mediumButton;
+    private JButton easyButton;
+    private JButton hardButton;
 
     private final User currentUser;
 
@@ -38,34 +38,34 @@ public class WorkoutUI {
             }
         });
 
-        facilButton.addActionListener(new ActionListener() {
+        easyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (e.getSource() == facilButton) {
+                if (e.getSource() == easyButton) {
                     frame.dispose();
-                    TargetMuscleUI myTarget = new TargetMuscleUI();
+                    TargetMuscleUI myTarget = new TargetMuscleUI(currentUser);
                 }
             }
         });
 
 
-        medioButton.addActionListener(new ActionListener() {
+        mediumButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (e.getSource() == medioButton) {
+                if (e.getSource() == mediumButton) {
                     frame.dispose();
-                    TargetMuscleUI myTarget = new TargetMuscleUI();
+                    TargetMuscleUI myTarget = new TargetMuscleUI(currentUser);
                 }
             }
         });
 
 
-        dificilButton.addActionListener(new ActionListener() {
+        hardButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (e.getSource() == dificilButton) {
+                if (e.getSource() == hardButton) {
                     frame.dispose();
-                    TargetMuscleUI myTarget = new TargetMuscleUI();
+                    TargetMuscleUI myTarget = new TargetMuscleUI(currentUser);
                 }
             }
         });

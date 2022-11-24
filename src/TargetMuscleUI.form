@@ -151,6 +151,45 @@
           </component>
         </children>
       </grid>
+      <grid id="c2746" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="North"/>
+        <properties>
+          <background color="-9119492"/>
+          <preferredSize width="0" height="50"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="86e18" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints border-constraint="West"/>
+            <properties>
+              <background color="-9119492"/>
+              <preferredSize width="70" height="0"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="2e60f" class="javax.swing.JButton" binding="backButton">
+                <constraints border-constraint="Center"/>
+                <properties>
+                  <actionCommand value=""/>
+                  <borderPainted value="false"/>
+                  <contentAreaFilled value="false"/>
+                  <defaultCapable value="false"/>
+                  <focusPainted value="false"/>
+                  <focusable value="false"/>
+                  <icon value="icons/Back.png"/>
+                  <label value=""/>
+                  <preferredSize width="30" height="30"/>
+                  <pressedIcon value="icons/BackClick.png"/>
+                  <requestFocusEnabled value="false"/>
+                  <rolloverEnabled value="false"/>
+                  <text value=""/>
+                  <verifyInputWhenFocusTarget value="false"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
     </children>
   </grid>
 </form>

@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class TargetMuscleUI {
 
@@ -15,13 +17,17 @@ public class TargetMuscleUI {
     private JCheckBox checkBox8;
     private JCheckBox checkBox9;
     private JCheckBox checkBox10;
+    private JButton backButton;
 
+    private final User currentUser;
     private void createUIComponents() {
         // TODO: place custom component creation code here
 
     }
 
-    TargetMuscleUI(){
+    TargetMuscleUI(User u){
+
+        currentUser = u;
 
         int windowHeight = 300;
         int windowWidth = 300;
@@ -35,5 +41,14 @@ public class TargetMuscleUI {
         frame.setResizable(true);
         frame.setVisible(true);
         frame.add(targetPanel);
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource() == backButton) {
+                    frame.dispose();
+                    WorkoutUI myTarget = new WorkoutUI(currentUser);
+                }
+            }
+        });
     }
 }
