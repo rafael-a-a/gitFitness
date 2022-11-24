@@ -1,176 +1,73 @@
-import org.postgresql.ds.common.BaseDataSource;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class DefinitionsUI extends JFrame implements ActionListener {
+public class DefinitionsUI{
 
     JButton goBackButton;
     JButton changePass;
     JButton changeName;
     JButton changeData;
     JButton deleteAccount;
-    JLabel textLabel;
-    JLabel buttonsLabel;
     JPanel textPanel;
     JPanel topPanel;
     JPanel goBackPanel;
     JPanel buttonsPanel;
     private final User currentUser;
     private  String info;
-
+    private JPanel settingsPanel;
 
 
     DefinitionsUI(User u){
 
         currentUser = u;
-        ImageIcon backImage = new ImageIcon("src/icons/Back.png");
-        ImageIcon backPressed = new ImageIcon("src/icons/BackClick.png");
+
         ImageIcon image = new ImageIcon("src/icons/logo4.png"); //create an ImageIcon
-        ImageIcon button = new ImageIcon("src/icons/Treino");
-        ImageIcon buttonPressed = new ImageIcon("src/icons/TreinoClick.png");
+        JFrame frame = new JFrame();
+        frame.setTitle("Lose it");  //Sets title of the frame
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //exit out of application
+        frame.setResizable(true); // don't allow frame to be resized
+        frame.setSize(900,700); //sets the x-dimension and the y-dimension of the window
+        frame.setVisible(true); //make frame visible
+        frame.setIconImage(image.getImage());    //change icon of frame
+        frame.setLocationRelativeTo(null);
+        frame.add(settingsPanel);
+        ActionListener listener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource() == goBackButton){
+                    frame.dispose();
+                    MainMenuUI myMenuUI = new MainMenuUI(currentUser);
+                    System.out.println("workout");
+                }else if(e.getSource() == changePass){
+                    info = "pass";
+                    changePassUI cp = new changePassUI(currentUser, info);
+                    System.out.println("change pass");
+                    frame.dispose();
+                }else if(e.getSource() == changeName){
+                    info = "name";
+                    changePassUI cp = new changePassUI(currentUser, info);
+                    System.out.println("your name is"+currentUser.getName());
+                    frame.dispose();
+                }else if (e.getSource() == changeData){
+                    System.out.println("change data");
+                }else if(e.getSource() == deleteAccount){
+                    info = "delete";
+                    changePassUI cp = new changePassUI(currentUser, info);
+                    System.out.println("delete account");
+                    frame.dispose();
 
-//-------------------------------Buttons--------------------------------------------
-        goBackButton = new JButton();
-        goBackButton.setFocusPainted(false); // Removes focus lines
-        goBackButton.setBorderPainted(false);    //Removes border
-        goBackButton.setContentAreaFilled(false);    //Removes background
-        goBackButton.setPreferredSize(new Dimension(50, 30));
-        goBackButton.setPressedIcon(backPressed);   //Changes icon (when pressed)
-        goBackButton.setIcon(backImage);
-        goBackButton.addActionListener(this);
-        goBackButton.setFocusable(false);
-        goBackButton.setLayout(new BorderLayout());
-
-        changePass = new JButton();
-        changePass.setText("Change password");
-       /* changePass.setFocusPainted(false);
-        changePass.setBorderPainted(false);
-        changePass.setContentAreaFilled(false);
-        changePass.setPressedIcon(buttonPressed);
-        changePass.setIcon(button);*/
-        changePass.setIconTextGap(-15);
-        changePass.setFocusable(false);
-        changePass.setPreferredSize(new Dimension(400, 100));
-        changePass.addActionListener(this);
-
-        changeName = new JButton();
-        changeName.setPreferredSize(new Dimension(400, 100));//setBounds(240, 110, 400, 100);
-        changeName.setText("Change name");
-        changeName.addActionListener(this);
-        changeName.setFocusable(false);
-
-        changeData = new JButton();
-        changeData.setPreferredSize(new Dimension(400, 100));//setBounds(240, 210, 400, 100);
-        changeData.setText("Change data");
-        changeData.addActionListener(this);
-        changeData.setFocusable(false);
-
-        deleteAccount  = new JButton();
-        deleteAccount.setPreferredSize(new Dimension(400, 100));//setBounds(240, 310, 400, 100);
-        deleteAccount.setText("Delete account");
-        deleteAccount.addActionListener(this);
-        deleteAccount.setFocusable(false);
-
-//-------------------------------Labels--------------------------------------------
-        textLabel = new JLabel();
-        // esta janela devia se chamar settings
-        textLabel.setText("SETTINGS");
-        textLabel.setVerticalAlignment(JLabel.TOP);
-        textLabel.setHorizontalAlignment(JLabel.CENTER);
-        textLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 40));
-
-
-        buttonsLabel = new JLabel();
-        buttonsLabel.setPreferredSize(new Dimension(100,100));
-        buttonsLabel.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
-
-
-        c.gridx = 0;
-        c.anchor = GridBagConstraints.CENTER;
-        c.insets = new Insets(10, 10,0,0);
-        //c.fill = GridBagConstraints.VERTICAL;
-        buttonsLabel.add(changePass,c);
-        buttonsLabel.add(changeName,c);
-        buttonsLabel.add(changeData,c);
-        buttonsLabel.add(deleteAccount,c);
-
-
-
-
-//-------------------------------Panels--------------------------------------------
-        topPanel = new JPanel();
-        topPanel.setBackground(new Color(255, 255, 200));
-        topPanel.setPreferredSize(new Dimension(500,40));
-        topPanel.setLayout(new BorderLayout());     //allows to change elements position inside the panel
-        goBackPanel = new JPanel();
-        goBackPanel.setBackground(new Color(255, 255, 200));
-        goBackPanel.setPreferredSize(new Dimension(100, 100));
-        goBackPanel.add(goBackButton);
-        topPanel.add(goBackPanel, BorderLayout.WEST);
-
-
-        textPanel =new JPanel();
-        textPanel.setBackground(new Color(255, 255, 200));
-        textPanel.setPreferredSize(new Dimension(100, 100));
-        textPanel.setLayout(new BorderLayout());
-        textPanel.add(textLabel, BorderLayout.NORTH);
-
-        buttonsPanel = new JPanel();
-
-        buttonsPanel.setBackground(new Color(255, 255, 200));
-        buttonsPanel.setPreferredSize(new Dimension(100, 100));
-        buttonsPanel.setLayout(new BorderLayout());
-        buttonsPanel.add(buttonsLabel, BorderLayout.CENTER);
-
-        textPanel.add(buttonsPanel, BorderLayout.CENTER);
-
-
-
-        this.setTitle("Lose it");  //Sets title of the frame
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //exit out of application
-        this.setResizable(true); // don't allow frame to be resized
-        this.setSize(900,700); //sets the x-dimension and the y-dimension of the window
-        this.setLayout(new BorderLayout());
-        this.setVisible(true); //make frame visible
-        this.setIconImage(image.getImage());    //change icon of frame
-        this.setLocationRelativeTo(null);
-
-        this.add(topPanel, BorderLayout.NORTH);
-        this.add(textPanel, BorderLayout.CENTER);
-        //this.add(buttonsPanel, BorderLayout.SOUTH);
+                }
+            }
+        };
+        changePass.addActionListener(listener);
+        changeName.addActionListener(listener);
+        changeData.addActionListener(listener);
+        deleteAccount.addActionListener(listener);
+        goBackButton.addActionListener(listener);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e){
-
-        if(e.getSource() == goBackButton){
-            this.dispose();
-            MainMenuUI myMenuUI = new MainMenuUI(currentUser);
-            System.out.println("workout");
-        }else if(e.getSource() == changePass){
-            info = "pass";
-            changePassUI cp = new changePassUI(currentUser, info);
-            System.out.println("change pass");
-            this.dispose();
-        }else if(e.getSource() == changeName){
-            info = "name";
-            changePassUI cp = new changePassUI(currentUser, info);
-            System.out.println("your name is"+currentUser.getName());
-            this.dispose();
-        }else if (e.getSource() == changeData){
-            System.out.println("change data");
-        }else if(e.getSource() == deleteAccount){
-            info = "delete";
-            changePassUI cp = new changePassUI(currentUser, info);
-            System.out.println("delete account");
-            this.dispose();
-
-        }
-    }
 }
 
 
