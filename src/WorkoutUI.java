@@ -19,6 +19,9 @@ public class WorkoutUI {
 
     WorkoutUI(User u) {
 
+        final String[] difficulty = new String[1];
+        final String targetMuscle;
+
         currentUser = u;
         JFrame frame = new JFrame();
         frame.setTitle("Lose it");  //Sets title of the frame
@@ -42,8 +45,9 @@ public class WorkoutUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == easyButton) {
+                    difficulty[0] = "Beginner";
                     frame.dispose();
-                    TargetMuscleUI myTarget = new TargetMuscleUI(currentUser);
+                    TargetMuscleUI myTarget = new TargetMuscleUI(currentUser, difficulty[0]);
                 }
             }
         });
@@ -53,8 +57,9 @@ public class WorkoutUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == mediumButton) {
+                    difficulty[0] = "Medium";
                     frame.dispose();
-                    TargetMuscleUI myTarget = new TargetMuscleUI(currentUser);
+                    TargetMuscleUI myTarget = new TargetMuscleUI(currentUser, difficulty[0]);
                 }
             }
         });
@@ -64,8 +69,9 @@ public class WorkoutUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == hardButton) {
+                    difficulty[0] = "Expert";
                     frame.dispose();
-                    TargetMuscleUI myTarget = new TargetMuscleUI(currentUser);
+                    TargetMuscleUI myTarget = new TargetMuscleUI(currentUser, difficulty[0]);
                 }
             }
         });

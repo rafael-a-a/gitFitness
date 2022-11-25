@@ -9,7 +9,7 @@ import java.util.Random;
 public class Exercise {
     public String name, difficulty, description, targetMuscle, exID;
 
-    public Exercise getRandomExercise(String targetMuscle, String difficulty){
+    public static Exercise getRandomExercise(String targetMuscle, String difficulty){
         /**
          * NAME:getRandomExercise
          * RETURNS: returns a random exercise within the targetMuscle and difficulty given

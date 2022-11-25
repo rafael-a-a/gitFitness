@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 public class TargetMuscleUI {
 
@@ -21,9 +23,11 @@ public class TargetMuscleUI {
 
     private final User currentUser;
 
-    TargetMuscleUI(User u){
+
+    TargetMuscleUI(User u, String d) {
 
         currentUser = u;
+
 
         int windowHeight = 500;
         int windowWidth = 500;
@@ -37,51 +41,142 @@ public class TargetMuscleUI {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(e.getSource() == backButton) {
+                if (e.getSource() == backButton) {
                     frame.dispose();
                     WorkoutUI myWorkout = new WorkoutUI(currentUser);
                 }
             }
         });
-        /*ActionListener listener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(e.getSource()==absCheck){
 
-                    
-                } else if (e.getSource()==backCheckBox) {
-                    
-                } else if (e.getSource()==bicepsCheckBox) {
-                    
-                } else if (e.getSource()==cardioCheckBox) {
-                    
-                } else if (e.getSource()==chestCheckBox) {
-                    
-                } else if (e.getSource()==glutesCheckBox) {
-                    
-                } else if (e.getSource()==lowerLegsCheckBox) {
-                    
-                } else if (e.getSource()==shouldersCheckBox) {
-                    
-                } else if (e.getSource()==tricepsCheckBox) {
-                    
-                } else if (e.getSource()==upperLegsCheckBox) {
-                    
-                } else if (e.getSource()==confirmButton) {
+
+        absCheck.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(e.getStateChange()==ItemEvent.SELECTED){
+                    String dificulty = d;
+                    Exercise ex;
+                    ex = Exercise.getRandomExercise("Abs", dificulty);
+                    System.out.println(ex.name);
 
                 }
             }
-        };
-        absCheck.addActionListener(listener);
-        backCheckBox.addActionListener(listener);
-        bicepsCheckBox.addActionListener(listener);
-        cardioCheckBox.addActionListener(listener);
-        chestCheckBox.addActionListener(listener);
-        glutesCheckBox.addActionListener(listener);
-        lowerLegsCheckBox.addActionListener(listener);
-        shouldersCheckBox.addActionListener(listener);
-        tricepsCheckBox.addActionListener(listener);
-        upperLegsCheckBox.addActionListener(listener);
-        confirmButton.addActionListener(listener);*/
+        });
+        backCheckBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(e.getStateChange()==ItemEvent.SELECTED){
+                    String dificulty = d;
+                    Exercise ex;
+                    ex = Exercise.getRandomExercise("Back", dificulty);
+                    System.out.println(ex.name);
+
+                }
+
+            }
+        });
+        bicepsCheckBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(e.getStateChange()==ItemEvent.SELECTED){
+                    String dificulty = d;
+                    Exercise ex;
+                    ex = Exercise.getRandomExercise("Biceps", dificulty);
+                    System.out.println(ex.name);
+
+                }
+
+            }
+        });
+        cardioCheckBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(e.getStateChange()==ItemEvent.SELECTED){
+                    String dificulty = d;
+                    Exercise ex;
+                    ex = Exercise.getRandomExercise("Cardio", dificulty);
+                    System.out.println(ex.name);
+
+                }
+
+            }
+        });
+        chestCheckBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(e.getStateChange()==ItemEvent.SELECTED){
+                    String dificulty = d;
+                    Exercise ex;
+                    ex = Exercise.getRandomExercise("Chest", dificulty);
+                    System.out.println(ex.name);
+
+                }
+
+            }
+        });
+        glutesCheckBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(e.getStateChange()==ItemEvent.SELECTED){
+                    String dificulty = d;
+                    Exercise ex;
+                    ex = Exercise.getRandomExercise("Glutes", dificulty);
+                    System.out.println(ex.name);
+
+                }
+
+            }
+        });
+        lowerLegsCheckBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(e.getStateChange()==ItemEvent.SELECTED){
+                    String dificulty = d;
+                    Exercise ex;
+                    ex = Exercise.getRandomExercise("Lower Legs", dificulty);
+                    System.out.println(ex.name);
+
+                }
+
+            }
+        });
+        shouldersCheckBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(e.getStateChange()==ItemEvent.SELECTED){
+                    String dificulty = d;
+                    Exercise ex;
+                    ex = Exercise.getRandomExercise("Shoulders", dificulty);
+                    System.out.println(ex.name);
+
+                }
+
+            }
+        });
+        tricepsCheckBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(e.getStateChange()==ItemEvent.SELECTED){
+                    String dificulty = d;
+                    Exercise ex;
+                    ex = Exercise.getRandomExercise("Triceps", dificulty);
+                    System.out.println(ex.name);
+
+                }
+
+            }
+        });
+        upperLegsCheckBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(e.getStateChange()==ItemEvent.SELECTED){
+                    String dificulty = d;
+                    Exercise ex;
+                    ex = Exercise.getRandomExercise("Upper Legs", dificulty);
+                    System.out.println(ex.name);
+
+                }
+
+            }
+        });
     }
 }
