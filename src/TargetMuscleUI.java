@@ -24,7 +24,7 @@ public class TargetMuscleUI {
     private final User currentUser;
 
 
-    TargetMuscleUI(User u, String d) {
+    TargetMuscleUI(User u, String difficulty) {
 
         currentUser = u;
 
@@ -53,9 +53,8 @@ public class TargetMuscleUI {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if(e.getStateChange()==ItemEvent.SELECTED){
-                    String dificulty = d;
                     Exercise ex;
-                    ex = Exercise.getRandomExercise("Abs", dificulty);
+                    ex = Exercise.getRandomExercise("Abs", difficulty);
                     System.out.println(ex.name);
 
                 }
@@ -65,9 +64,8 @@ public class TargetMuscleUI {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if(e.getStateChange()==ItemEvent.SELECTED){
-                    String dificulty = d;
                     Exercise ex;
-                    ex = Exercise.getRandomExercise("Back", dificulty);
+                    ex = Exercise.getRandomExercise("Back", difficulty);
                     System.out.println(ex.name);
 
                 }
@@ -78,9 +76,8 @@ public class TargetMuscleUI {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if(e.getStateChange()==ItemEvent.SELECTED){
-                    String dificulty = d;
                     Exercise ex;
-                    ex = Exercise.getRandomExercise("Biceps", dificulty);
+                    ex = Exercise.getRandomExercise("Biceps", difficulty);
                     System.out.println(ex.name);
 
                 }
@@ -91,9 +88,8 @@ public class TargetMuscleUI {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if(e.getStateChange()==ItemEvent.SELECTED){
-                    String dificulty = d;
                     Exercise ex;
-                    ex = Exercise.getRandomExercise("Cardio", dificulty);
+                    ex = Exercise.getRandomExercise("Cardio", difficulty);
                     System.out.println(ex.name);
 
                 }
@@ -104,9 +100,8 @@ public class TargetMuscleUI {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if(e.getStateChange()==ItemEvent.SELECTED){
-                    String dificulty = d;
                     Exercise ex;
-                    ex = Exercise.getRandomExercise("Chest", dificulty);
+                    ex = Exercise.getRandomExercise("Chest", difficulty);
                     System.out.println(ex.name);
 
                 }
@@ -117,9 +112,8 @@ public class TargetMuscleUI {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if(e.getStateChange()==ItemEvent.SELECTED){
-                    String dificulty = d;
                     Exercise ex;
-                    ex = Exercise.getRandomExercise("Glutes", dificulty);
+                    ex = Exercise.getRandomExercise("Glutes", difficulty);
                     System.out.println(ex.name);
 
                 }
@@ -130,9 +124,8 @@ public class TargetMuscleUI {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if(e.getStateChange()==ItemEvent.SELECTED){
-                    String dificulty = d;
                     Exercise ex;
-                    ex = Exercise.getRandomExercise("Lower Legs", dificulty);
+                    ex = Exercise.getRandomExercise("Lower Legs", difficulty);
                     System.out.println(ex.name);
 
                 }
@@ -143,9 +136,8 @@ public class TargetMuscleUI {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if(e.getStateChange()==ItemEvent.SELECTED){
-                    String dificulty = d;
                     Exercise ex;
-                    ex = Exercise.getRandomExercise("Shoulders", dificulty);
+                    ex = Exercise.getRandomExercise("Shoulders", difficulty);
                     System.out.println(ex.name);
 
                 }
@@ -156,9 +148,8 @@ public class TargetMuscleUI {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if(e.getStateChange()==ItemEvent.SELECTED){
-                    String dificulty = d;
                     Exercise ex;
-                    ex = Exercise.getRandomExercise("Triceps", dificulty);
+                    ex = Exercise.getRandomExercise("Triceps", difficulty);
                     System.out.println(ex.name);
 
                 }
@@ -169,9 +160,8 @@ public class TargetMuscleUI {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if(e.getStateChange()==ItemEvent.SELECTED){
-                    String dificulty = d;
                     Exercise ex;
-                    ex = Exercise.getRandomExercise("Upper Legs", dificulty);
+                    ex = Exercise.getRandomExercise("Upper Legs", difficulty);
                     System.out.println(ex.name);
 
                 }
