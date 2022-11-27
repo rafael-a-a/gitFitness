@@ -50,6 +50,7 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
         pressedh = false;
         pressedf = false;
 
+        System.out.println("altura do individuo:" + currentUser.getHeight());
 
         if(info.equals("pass") || info.equals("delete")){
             textLabel = new JLabel();
@@ -392,7 +393,7 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
             return false;
         }
 
-        if( height <= 0 || height > 250){
+        if( height <= 0 || height > 2.50){
             return false;
         }
 
@@ -409,7 +410,7 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
             return false;
         }
 
-        if(weight < 0){
+        if(weight <= 0){
             return false;
         }
 
@@ -426,7 +427,7 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
             return false;
         }
 
-        if(fat < 0 || fat >= 90){
+        if(fat <= 0 || fat >= 90){
             return false;
         }
 
@@ -452,7 +453,7 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
         wText.setVisible(false);
 
 
-        hLabel.setText("Height:  " + String.format(Locale.ENGLISH,"%.2f",currentUser.getHeight()) + " cm");
+        hLabel.setText("Height:  " + String.format(Locale.ENGLISH,"%.2f",currentUser.getHeight()) + "  m");
         hLabel.setBounds(windowWidth /2 - 120, windowHeight - 150, buttonWidth, buttonHeight - 10);
         hLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 14));
 

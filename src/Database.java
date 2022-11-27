@@ -275,7 +275,14 @@ public class Database {
             rs = stmt.executeQuery("SELECT currheight from loseit.userlist where id = '"+ id + "';");
             while(rs.next()){
                 double currHeight = rs.getDouble("currheight");
-                double newImc = newWeight/Math.pow(currHeight, 2);
+                double newImc;
+
+                if(currHeight == 0){ //need to check, because it may cause errors
+                    newImc = 0;
+                }else{
+                    newImc = newWeight/Math.pow(currHeight, 2);
+                }
+
                 changeIMC(newImc, id);
             }
 
