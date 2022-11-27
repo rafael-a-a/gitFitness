@@ -3,6 +3,9 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Locale;
 
+/* Even though this class is named changePassUI, because initially this was just to create the UI
+to change password, this creates all frames relative to settings.
+ */
 public class changePassUI extends JFrame implements ActionListener, MouseListener, KeyListener {
 
 
