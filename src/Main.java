@@ -3,7 +3,7 @@ public class Main {
     public static void main(String[] args) {
 
         LoginUI myLogin = new LoginUI();//to start the program
-        //TargetMuscleUI target = new TargetMuscleUI();
+
     }
 }
 //criar mainmenu com parametro user dado pelo login

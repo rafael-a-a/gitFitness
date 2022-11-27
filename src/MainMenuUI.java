@@ -21,6 +21,7 @@ public class MainMenuUI extends JFrame implements ActionListener{
     MainMenuUI(User u){
 
         currentUser = u;
+
         ImageIcon bigImage = new ImageIcon("src/icons/logo1.png");
         ImageIcon workoutIcon = new ImageIcon("src/icons/Button.png");
         ImageIcon workoutPressed = new ImageIcon("src/icons/ButtonClick.png");

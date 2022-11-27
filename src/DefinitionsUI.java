@@ -51,7 +51,10 @@ public class DefinitionsUI{
                     System.out.println("your name is"+currentUser.getName());
                     frame.dispose();
                 }else if (e.getSource() == changeData){
+                    info = "data";
+                    changePassUI cp = new changePassUI(currentUser, info);
                     System.out.println("change data");
+                    frame.dispose();
                 }else if(e.getSource() == deleteAccount){
                     info = "delete";
                     changePassUI cp = new changePassUI(currentUser, info);

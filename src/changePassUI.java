@@ -4,6 +4,9 @@ import java.awt.event.*;
 
 public class changePassUI extends JFrame implements ActionListener, MouseListener, KeyListener {
 
+    private boolean pressedw;
+    private boolean pressedh;
+    private boolean pressedf;
     Database d = new Database();
     JPasswordField passwordField = new JPasswordField();
     JPasswordField newpassField = new JPasswordField();
@@ -13,6 +16,15 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
     JTextField nameField = new JTextField();
     JLabel changeStatus = new JLabel();
     JLabel textLabel = new JLabel();
+    JLabel wLabel = new JLabel();
+    JLabel hLabel = new JLabel();
+    JLabel fLabel = new JLabel();
+    JButton cwButton = new JButton();
+    JButton chButton = new JButton();
+    JButton cfButton = new JButton();
+    JTextField wText = new JTextField();
+    JTextField hText = new JTextField();
+    JTextField fText = new JTextField();
 
     private final User currentUser;
     private String info;
@@ -77,6 +89,62 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
             nameField.addMouseListener(this);
             nameField.setText("Name...");
             nameField.setForeground(Color.lightGray);
+        }else if(info.equals("data")){
+
+
+            textLabel.setText("  Change your Data");
+            textLabel.setBounds(windowWidth /2 - buttonWidth /2, windowHeight - 250, buttonWidth, buttonHeight - 10);
+            textLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 15));
+
+            wLabel.setText("Weight:  " + currentUser.getWeight() + " kg");
+            wLabel.setBounds(windowWidth /2 - 120, windowHeight - 180, buttonWidth, buttonHeight - 10);
+            wLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 14));
+
+            cwButton.setBounds(windowWidth /2, windowHeight - 176, 30, buttonHeight - 15);
+            cwButton.setText("...");
+            cwButton.addActionListener(this);
+            cwButton.setFocusable(false);
+            wText.setBounds(windowWidth /2 + 40 , windowHeight - 176, 30, buttonHeight - 15);
+            wText.setVisible(false);
+
+
+            hLabel.setText("Height:  " + currentUser.getHeight() + " cm");
+            hLabel.setBounds(windowWidth /2 - 120, windowHeight - 150, buttonWidth, buttonHeight - 10);
+            hLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 14));
+
+            chButton.setBounds(windowWidth /2, windowHeight - 146, 30, buttonHeight - 15);
+            chButton.setText("...");
+            chButton.addActionListener(this);
+            chButton.setFocusable(false);
+            hText.setBounds(windowWidth /2 + 40, windowHeight - 146, 30, buttonHeight - 15);
+            hText.setVisible(false);
+
+
+            fLabel.setText("Body Fat: " + currentUser.getBodyFat()+ "%");
+            fLabel.setBounds(windowWidth /2 - 120, windowHeight - 120, buttonWidth, buttonHeight - 10);
+            fLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 14));
+
+            cfButton.setText("...");
+            cfButton.setBounds(windowWidth /2, windowHeight - 116, 30, buttonHeight - 15);
+            cfButton.addActionListener(this);
+            cfButton.setFocusable(false);
+            fText.setBounds(windowWidth /2 + 40, windowHeight - 116, 30, buttonHeight - 15);
+            fText.setVisible(false);
+
+            pressedw = false;
+            pressedh = false;
+            pressedf = false;
+
+            this.add(wLabel);
+            this.add(hLabel);
+            this.add(fLabel);
+            this.add(cwButton);
+            this.add(chButton);
+            this.add(cfButton);
+            this.add(wText);
+            this.add(hText);
+            this.add(fText);
+
         }
 
         goBackButton.setVisible(true);
@@ -118,6 +186,10 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
             confirmpassField.setVisible(false);
             newpassField.setVisible(false);
             changePass.setText("Delete");
+        }
+
+        if(info.equals("data")){
+            changePass.setVisible(false);
         }
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -193,6 +265,25 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
         }else if(e.getSource() == goBackButton){
             DefinitionsUI definitions = new DefinitionsUI(currentUser);
             this.dispose();
+        }else if(e.getSource() == cwButton && !pressedw){
+            pressedw = true;
+            wText.setVisible(true);
+        }else if(e.getSource() == chButton && !pressedh ){
+            pressedh = true;
+            hText.setVisible(true);
+        }else if(e.getSource() == cfButton && !pressedf){
+            pressedf = true;
+            fText.setVisible(true);
+        }else if(e.getSource() == cwButton && pressedw){
+            double weight = Double.parseDouble(wText.getText());
+            pressedw = false;
+            wText.setVisible(false);
+        }else if(e.getSource() == chButton && pressedh ){
+            pressedh = false;
+            hText.setVisible(false);
+        }else if(e.getSource() == cfButton && pressedf){
+            pressedf = false;
+            fText.setVisible(false);
         }
 
     }
