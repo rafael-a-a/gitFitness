@@ -1,8 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Locale;
 
 public class changePassUI extends JFrame implements ActionListener, MouseListener, KeyListener {
+
 
     private boolean pressedw;
     private boolean pressedh;
@@ -26,8 +28,13 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
     JTextField hText = new JTextField();
     JTextField fText = new JTextField();
 
-    private final User currentUser;
+    private User currentUser;
     private String info;
+
+    int windowHeight = 300;
+    int windowWidth = 300;
+    int buttonHeight = 30;
+    int buttonWidth = 160;
 
     changePassUI(User u, String i){
 
@@ -39,10 +46,9 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
         ImageIcon backImage = new ImageIcon("src/icons/Back.png");
         ImageIcon backPressed = new ImageIcon("src/icons/BackClick.png");
 
-        int windowHeight = 300;
-        int windowWidth = 300;
-        int buttonHeight = 30;
-        int buttonWidth = 160;
+        pressedw = false;
+        pressedh = false;
+        pressedf = false;
 
 
         if(info.equals("pass") || info.equals("delete")){
@@ -90,61 +96,7 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
             nameField.setText("Name...");
             nameField.setForeground(Color.lightGray);
         }else if(info.equals("data")){
-
-
-            textLabel.setText("  Change your Data");
-            textLabel.setBounds(windowWidth /2 - buttonWidth /2, windowHeight - 250, buttonWidth, buttonHeight - 10);
-            textLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 15));
-
-            wLabel.setText("Weight:  " + currentUser.getWeight() + " kg");
-            wLabel.setBounds(windowWidth /2 - 120, windowHeight - 180, buttonWidth, buttonHeight - 10);
-            wLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 14));
-
-            cwButton.setBounds(windowWidth /2, windowHeight - 176, 30, buttonHeight - 15);
-            cwButton.setText("...");
-            cwButton.addActionListener(this);
-            cwButton.setFocusable(false);
-            wText.setBounds(windowWidth /2 + 40 , windowHeight - 176, 30, buttonHeight - 15);
-            wText.setVisible(false);
-
-
-            hLabel.setText("Height:  " + currentUser.getHeight() + " cm");
-            hLabel.setBounds(windowWidth /2 - 120, windowHeight - 150, buttonWidth, buttonHeight - 10);
-            hLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 14));
-
-            chButton.setBounds(windowWidth /2, windowHeight - 146, 30, buttonHeight - 15);
-            chButton.setText("...");
-            chButton.addActionListener(this);
-            chButton.setFocusable(false);
-            hText.setBounds(windowWidth /2 + 40, windowHeight - 146, 30, buttonHeight - 15);
-            hText.setVisible(false);
-
-
-            fLabel.setText("Body Fat: " + currentUser.getBodyFat()+ "%");
-            fLabel.setBounds(windowWidth /2 - 120, windowHeight - 120, buttonWidth, buttonHeight - 10);
-            fLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 14));
-
-            cfButton.setText("...");
-            cfButton.setBounds(windowWidth /2, windowHeight - 116, 30, buttonHeight - 15);
-            cfButton.addActionListener(this);
-            cfButton.setFocusable(false);
-            fText.setBounds(windowWidth /2 + 40, windowHeight - 116, 30, buttonHeight - 15);
-            fText.setVisible(false);
-
-            pressedw = false;
-            pressedh = false;
-            pressedf = false;
-
-            this.add(wLabel);
-            this.add(hLabel);
-            this.add(fLabel);
-            this.add(cwButton);
-            this.add(chButton);
-            this.add(cfButton);
-            this.add(wText);
-            this.add(hText);
-            this.add(fText);
-
+            createChangeData();
         }
 
         goBackButton.setVisible(true);
@@ -274,14 +226,36 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
         }else if(e.getSource() == cfButton && !pressedf){
             pressedf = true;
             fText.setVisible(true);
+            System.out.println(pressedf);
         }else if(e.getSource() == cwButton && pressedw){
-            double weight = Double.parseDouble(wText.getText());
+            if(updateWeight()){
+                currentUser = d.getUserData(currentUser.getEmail());
+                wLabel.setText("Weight:  " + String.format(Locale.ENGLISH,"%.1f",currentUser.getWeight()) + " kg");
+            }
             pressedw = false;
             wText.setVisible(false);
-        }else if(e.getSource() == chButton && pressedh ){
+            wText.setText("");
+
+        }else if(e.getSource() == chButton && pressedh){
+            if(updateHeight()){
+
+                currentUser = d.getUserData(currentUser.getEmail());
+                hLabel.setText("Height:  " + String.format(Locale.ENGLISH,"%.2f",currentUser.getHeight()) + "  m");
+            }
             pressedh = false;
             hText.setVisible(false);
-        }else if(e.getSource() == cfButton && pressedf){
+            hText.setText("");
+
+        }else if(e.getSource() == cfButton && pressedf ){
+            //double fat = Double.parseDouble(fText.getText());
+
+
+            if(updateFat()){
+                currentUser = d.getUserData(currentUser.getEmail());
+                fLabel.setText("Body Fat: " + currentUser.getBodyFat()+ "%");
+            }
+
+            fText.setText("");
             pressedf = false;
             fText.setVisible(false);
         }
@@ -408,4 +382,111 @@ public class changePassUI extends JFrame implements ActionListener, MouseListene
     public void mouseExited(MouseEvent e) {
 
     }
+
+    public boolean updateHeight(){
+        double height;
+
+        try{
+            height = Double.parseDouble(hText.getText());
+        }catch (NumberFormatException nfe){
+            return false;
+        }
+
+        if( height <= 0 || height > 250){
+            return false;
+        }
+
+        return d.changeHeight(height, currentUser.getID());
+    }
+
+    public boolean updateWeight(){
+
+        double weight;
+
+        try{
+            weight = Double.parseDouble(wText.getText());
+        }catch (NumberFormatException nfe){
+            return false;
+        }
+
+        if(weight < 0){
+            return false;
+        }
+
+        return d.changeWeight(weight, currentUser.getID());
+    }
+
+    public boolean updateFat(){
+
+        double fat;
+
+        try{
+            fat = Double.parseDouble(fText.getText());
+        }catch (NumberFormatException nfe){
+            return false;
+        }
+
+        if(fat < 0 || fat >= 90){
+            return false;
+        }
+
+        return d.changeBodyFat(fat, currentUser.getID());
+    }
+
+    public void createChangeData(){
+
+
+        textLabel.setText("  Change your Data");
+        textLabel.setBounds(windowWidth /2 - buttonWidth /2, windowHeight - 250, buttonWidth, buttonHeight - 10);
+        textLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 15));
+
+        wLabel.setText("Weight:  " + String.format(Locale.ENGLISH,"%.1f",currentUser.getWeight()) + " kg");
+        wLabel.setBounds(windowWidth /2 - 120, windowHeight - 180, buttonWidth, buttonHeight - 10);
+        wLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 14));
+
+        cwButton.setBounds(windowWidth /2, windowHeight - 176, 30, buttonHeight - 15);
+        cwButton.setText("...");
+        cwButton.addActionListener(this);
+        cwButton.setFocusable(false);
+        wText.setBounds(windowWidth /2 + 40 , windowHeight - 176, 30, buttonHeight - 15);
+        wText.setVisible(false);
+
+
+        hLabel.setText("Height:  " + String.format(Locale.ENGLISH,"%.2f",currentUser.getHeight()) + " cm");
+        hLabel.setBounds(windowWidth /2 - 120, windowHeight - 150, buttonWidth, buttonHeight - 10);
+        hLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 14));
+
+        chButton.setBounds(windowWidth /2, windowHeight - 146, 30, buttonHeight - 15);
+        chButton.setText("...");
+        chButton.addActionListener(this);
+        chButton.setFocusable(false);
+        hText.setBounds(windowWidth /2 + 40, windowHeight - 146, 30, buttonHeight - 15);
+        hText.setVisible(false);
+
+
+        fLabel.setText("Body Fat: " + currentUser.getBodyFat()+ "%");
+        fLabel.setBounds(windowWidth /2 - 120, windowHeight - 120, buttonWidth, buttonHeight - 10);
+        fLabel.setFont(new Font("myText", Font.BOLD|Font.ITALIC, 14));
+
+        cfButton.setText("...");
+        cfButton.setBounds(windowWidth /2, windowHeight - 116, 30, buttonHeight - 15);
+        cfButton.addActionListener(this);
+        cfButton.setFocusable(false);
+        fText.setBounds(windowWidth /2 + 40, windowHeight - 116, 30, buttonHeight - 15);
+        fText.setVisible(false);
+
+
+        this.add(wLabel);
+        this.add(hLabel);
+        this.add(fLabel);
+        this.add(cwButton);
+        this.add(chButton);
+        this.add(cfButton);
+        this.add(wText);
+        this.add(hText);
+        this.add(fText);
+
+    }
 }
+
+
